@@ -1,4 +1,4 @@
-#include "Base.hpp"
+п»ї#include "Base.hpp"
 #pragma once
 
 //#ifndef _INTERFACE_BASE_H_
@@ -23,7 +23,7 @@ namespace __interface_companents {
 			virtual void render(RenderWindow& wd);
 	};
 
-	//Направление градиента
+	//РќР°РїСЂР°РІР»РµРЅРёРµ РіСЂР°РґРёРµРЅС‚Р°
 	enum gradient_direction {
 		leftOnRight,
 		rightOnLeft,
@@ -31,7 +31,7 @@ namespace __interface_companents {
 		bottomOnTop
 	};
 
-	//Размер текста в пикселях
+	//Р Р°Р·РјРµСЂ С‚РµРєСЃС‚Р° РІ РїРёРєСЃРµР»СЏС…
 	enum text_size {
 		small_t = 24,
 		normal = 30,
@@ -55,8 +55,8 @@ namespace __interface_companents {
 		return Y + indent;
 	}
 
-	#define repoz_x(type, X, size, indent) repoz_X <type>(X, size, indent) //Вычисляет погрешность позиции текста в пикселях и выравнивает его относительно заданных координат для оси X
-	#define repoz_y(type, Y, size, indent) repoz_Y <type>(Y, size, indent) //Вычисляет погрешность позиции текста в пикселях и выравнивает его относительно заданных координат для оси Y
+	#define repoz_x(type, X, size, indent) repoz_X <type>(X, size, indent) //Р’С‹С‡РёСЃР»СЏРµС‚ РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РїРѕР·РёС†РёРё С‚РµРєСЃС‚Р° РІ РїРёРєСЃРµР»СЏС… Рё РІС‹СЂР°РІРЅРёРІР°РµС‚ РµРіРѕ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ Р·Р°РґР°РЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚ РґР»СЏ РѕСЃРё X
+	#define repoz_y(type, Y, size, indent) repoz_Y <type>(Y, size, indent) //Р’С‹С‡РёСЃР»СЏРµС‚ РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РїРѕР·РёС†РёРё С‚РµРєСЃС‚Р° РІ РїРёРєСЃРµР»СЏС… Рё РІС‹СЂР°РІРЅРёРІР°РµС‚ РµРіРѕ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ Р·Р°РґР°РЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚ РґР»СЏ РѕСЃРё Y
 
 }
 //#endif

@@ -1,4 +1,4 @@
-#include "InterfBase.hpp"
+п»ї#include "InterfBase.hpp"
 #include "Camera.hpp"
 #pragma once
 
@@ -10,63 +10,63 @@
 namespace __interface_companents {
 	class bar : public BaseInerface {
 		private:
-			int max_bar, min_bar, curr_bar; //Максимальное значение полосы, минимальное значение полосы, текущее значение полосы
-			RectangleShape* main; //Прямоугольник под объектом
-			RectangleShape* bevel; //Полоса
+			int max_bar, min_bar, curr_bar; //РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹, РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹, С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹
+			RectangleShape* main; //РџСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РїРѕРґ РѕР±СЉРµРєС‚РѕРј
+			RectangleShape* bevel; //РџРѕР»РѕСЃР°
 			Text* label;
 		public:
 			/// <summary>
-			/// Конструктор
+			/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 			/// </summary>
-			/// <param name="x">Позиция по оси X</param>
-			/// <param name="y">Позиция по оси Y</param>
-			/// <param name="br_ma">Максимальное значение полосы</param>
-			/// <param name="br_mi">Минимальное значение полосы</param>
-			/// <param name="name">Текст перед полосой</param>
-			/// <param name="mcol">Цвет полосы</param>
-			/// <param name="bcol">Цвет прямоугольника под полосой</param>
-			/// <param name="tcol">Цвет текста</param>
+			/// <param name="x">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё X</param>
+			/// <param name="y">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё Y</param>
+			/// <param name="br_ma">РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹</param>
+			/// <param name="br_mi">РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹</param>
+			/// <param name="name">РўРµРєСЃС‚ РїРµСЂРµРґ РїРѕР»РѕСЃРѕР№</param>
+			/// <param name="mcol">Р¦РІРµС‚ РїРѕР»РѕСЃС‹</param>
+			/// <param name="bcol">Р¦РІРµС‚ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РїРѕРґ РїРѕР»РѕСЃРѕР№</param>
+			/// <param name="tcol">Р¦РІРµС‚ С‚РµРєСЃС‚Р°</param>
 			/// <returns></returns>
 			bar(const Font& font, int x = 0, int y = 0, int br_ma = 100, int br_mi = 0, const wchar_t* name = L"NON:", const Color& mcol = Color::White, const Color& bcol = Color::Red, const Color& tcol = Color::Black);
-			bar(); //Конструктор по умолчанию
-			~bar(); //Деструктор
+			bar(); //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+			~bar(); //Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 			/// <summary>
-			/// Изменяет состояние полосы
+			/// РР·РјРµРЅСЏРµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ РїРѕР»РѕСЃС‹
 			/// </summary>
-			/// <param name="arg">Новое значение полосы</param>
+			/// <param name="arg">РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹</param>
 			/// <returns></returns>
 			void __fastcall changeBar(int arg) noexcept;
 			void render(RenderWindow& wd) noexcept override;
 			/// <summary>
-			/// Устанавливает новую позицию объекта 
+			/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅРѕРІСѓСЋ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р° 
 			/// </summary>
-			/// <param name="x">Позиция по оси X</param>
-			/// <param name="y">Позиция по оси Y</param>
+			/// <param name="x">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё X</param>
+			/// <param name="y">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё Y</param>
 			/// <returns></returns>
 			void __fastcall setPosition(int x, int y) noexcept override;
 			/// <summary>
-			/// Устанавливает новую позицию объекта
+			/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅРѕРІСѓСЋ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р°
 			/// </summary>
-			/// <param name="xy">Структура axes_i с координатами по осям X и Y</param>
+			/// <param name="xy">РЎС‚СЂСѓРєС‚СѓСЂР° axes_i СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё РїРѕ РѕСЃСЏРј X Рё Y</param>
 			void setPosition(const axes_i& xy) noexcept override;
 			/// <summary>
-			/// Изменяет размер текста
+			/// РР·РјРµРЅСЏРµС‚ СЂР°Р·РјРµСЂ С‚РµРєСЃС‚Р°
 			/// </summary>
-			/// <param name="size">Новый размер текста в пикселях</param>
+			/// <param name="size">РќРѕРІС‹Р№ СЂР°Р·РјРµСЂ С‚РµРєСЃС‚Р° РІ РїРёРєСЃРµР»СЏС…</param>
 			/// <returns></returns>
 			void resize(int size = normal) noexcept;
 			/// <summary>
-			/// Замораживает позицию объекта относительно камеры
+			/// Р—Р°РјРѕСЂР°Р¶РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°РјРµСЂС‹
 			/// </summary>
-			/// <param name="camera">Указатель на камеру</param>
-			/// <param name="xy">Структура с координатами заморозки</param>
+			/// <param name="camera">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєР°РјРµСЂСѓ</param>
+			/// <param name="xy">РЎС‚СЂСѓРєС‚СѓСЂР° СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё Р·Р°РјРѕСЂРѕР·РєРё</param>
 			void freeze(Camera* camera, const axes_i& xy) noexcept;
 			/// <summary>
-			/// Замораживает позицию объекта относительно камеры
+			/// Р—Р°РјРѕСЂР°Р¶РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°РјРµСЂС‹
 			/// </summary>
-			/// <param name="camera">Указатель на камеру</param>
-			/// <param name="x">Координаты по оси X</param>
-			/// <param name="y">Координаты по оси Y</param>
+			/// <param name="camera">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєР°РјРµСЂСѓ</param>
+			/// <param name="x">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё X</param>
+			/// <param name="y">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё Y</param>
 			void freeze(Camera* camera, int x, int y) noexcept;
 	};
 }

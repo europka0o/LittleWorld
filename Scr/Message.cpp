@@ -1,6 +1,6 @@
 #include "Message.hpp"
 
-//-----------------------------Сообщение-message-Начало---------------------------------------
+//-----------------------------РЎРѕРѕР±С‰РµРЅРёРµ-message-РќР°С‡Р°Р»Рѕ---------------------------------------
 __interface_companents::message::message(int x, int y, const Font& font, const wchar_t* txt, const Color& maincl, const Color& bordercl, const Color& textcl) :
 	active(false)
 {
@@ -19,7 +19,7 @@ __interface_companents::message::message(int x, int y, const Font& font, const w
 
 	txInfo = new text_box(font, 0, 0, txt, textcl);
 	txInfo->visible_bevel = false;
-	txMess = new text_box(font, 0, 0, L"Сообщение", Color::Yellow);
+	txMess = new text_box(font, 0, 0, L"РЎРѕРѕР±С‰РµРЅРёРµ", Color::Yellow);
 	txMess->visible_bevel = false;
 
 	main->setSize(Vector2f(txInfo->getSize().width + 10, 150));
@@ -36,7 +36,7 @@ __interface_companents::message::message(int x, int y, const Font& font, const w
 	grFirst->setPosition(txMess->getPosition().x - 5 - grFirst->getSize().width, txMess->getPosition().y + (txMess->getSize().height / 2) - (grFirst->getSize().height / 2));
 	grSecond->setPosition(txMess->getPosition().x + 5 + txMess->getSize().width, txMess->getPosition().y + (txMess->getSize().height / 2) - (grSecond->getSize().height / 2));
 
-	btOk = new button(0, 0, font, L"Ок", Color::Black, Color::Yellow, Color::Yellow);
+	btOk = new button(0, 0, font, L"РћРє", Color::Black, Color::Yellow, Color::Yellow);
 	btOk->setPosition(main->getGlobalBounds().left + (main->getGlobalBounds().width / 2) - (btOk->getSize().width / 2), txMess->getSize().top - 35);
 }
 
@@ -85,4 +85,4 @@ void __interface_companents::message::render(RenderWindow& wd) noexcept {
 		grSecond->render(wd);
 	}
 }
-//-----------------------------Сообщение-message-Конец---------------------------------------
+//-----------------------------РЎРѕРѕР±С‰РµРЅРёРµ-message-РљРѕРЅРµС†---------------------------------------

@@ -1,6 +1,6 @@
-#include "Knight.hpp"
+п»ї#include "Knight.hpp"
 
-// ----------------------------------Рыцарь-Knight-Начало------------------------------
+// ----------------------------------Р С‹С†Р°СЂСЊ-Knight-РќР°С‡Р°Р»Рѕ------------------------------
 Knight::Knight(const Sprite& ptr_sprite, float X_POS, float Y_POS, int hp, unsigned int descendant) :
 	BaseCharacter(ptr_sprite, X_POS, Y_POS, hp, descendant)
 	{
@@ -116,4 +116,4 @@ void Knight::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
 		HP->render(wd);
 	}
 }
-//----------------------------------Рыцарь-Knight-Конец------------------------------
+//----------------------------------Р С‹С†Р°СЂСЊ-Knight-РљРѕРЅРµС†------------------------------

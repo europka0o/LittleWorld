@@ -1,6 +1,6 @@
-#include "Camera.hpp"
+п»ї#include "Camera.hpp"
 
-//----------------------------------Камера-Camera-Начало------------------------------
+//----------------------------------РљР°РјРµСЂР°-Camera-РќР°С‡Р°Р»Рѕ------------------------------
 Camera::Camera(int x, int y, int screen_width, int screen_height) :
 	screen_H(screen_height),
 	screen_W(screen_width)
@@ -55,4 +55,4 @@ void Camera::setView(RenderWindow& wd) {
 	wd.setView(*Vid);
 }
 
-//----------------------------------Камера-Camera-Конец-------------------------------
+//----------------------------------РљР°РјРµСЂР°-Camera-РљРѕРЅРµС†-------------------------------

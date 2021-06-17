@@ -1,6 +1,6 @@
-#include "Spearman.hpp"
+п»ї#include "Spearman.hpp"
 
-//-----------------------------------------Копейщик-Spearman-Начало------------------------------------------
+//-----------------------------------------РљРѕРїРµР№С‰РёРє-Spearman-РќР°С‡Р°Р»Рѕ------------------------------------------
 Spearman::Spearman(const Sprite& ptr_sprite, float X_POS, float Y_POS, int hp, unsigned int descendant) :
 	BaseCharacter(ptr_sprite, X_POS, Y_POS, hp, descendant)
 	{
@@ -44,7 +44,7 @@ void __fastcall Spearman::move(float time, direcrion4 direct) noexcept {
 		}
 		sprite_rect = IntRect(300 * int(frame) + 300, 360, -300, 180);
 	} else {
-		switch (direction) { //Направление движения
+		switch (direction) { //РќР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ
 			case direcrion4::right:
 				frame += 0.023 * time;
 				if (frame > 7) {
@@ -115,4 +115,4 @@ void Spearman::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
 		HP->render(wd);
 	}
 }
-//------------------------------------------Копейщик-Spearman-Конец------------------------------------------
+//------------------------------------------РљРѕРїРµР№С‰РёРє-Spearman-РљРѕРЅРµС†------------------------------------------

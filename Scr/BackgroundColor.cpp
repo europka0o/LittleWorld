@@ -1,6 +1,6 @@
-#include "BackgroundColor.hpp"
+п»ї#include "BackgroundColor.hpp"
 
-//-------------------------------------Задний-фон-background_color-Начало------------------------------------------
+//-------------------------------------Р—Р°РґРЅРёР№-С„РѕРЅ-background_color-РќР°С‡Р°Р»Рѕ------------------------------------------
 background_color::background_color(int x, int y, const Color& cl, configuration* cf) :
 	visible(false)
 {
@@ -26,4 +26,4 @@ void background_color::render(RenderWindow& wd) noexcept {
 		wd.draw(*background);
 	}
 }
-//-------------------------------------Задний-фон-background_color-Конец------------------------------------------
+//-------------------------------------Р—Р°РґРЅРёР№-С„РѕРЅ-background_color-РљРѕРЅРµС†------------------------------------------

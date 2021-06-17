@@ -1,4 +1,4 @@
-#include "Trigger.hpp"
+﻿#include "Trigger.hpp"
 #pragma once
 
 //#ifndef _BASE_CHARACTER_H_

@@ -1,6 +1,6 @@
 #include "MenuSettings.hpp"
 
-//------------------------Меню-настроек-menu_settings-Начало--------------------------------------
+//------------------------РњРµРЅСЋ-РЅР°СЃС‚СЂРѕРµРє-menu_settings-РќР°С‡Р°Р»Рѕ--------------------------------------
 menu_settings::menu_settings(configuration* cf, Camera* camera, const Font& font, const Color& maincl, const Color& bordercl) :
 	active(false),
 	blackout_visible(false)
@@ -21,30 +21,30 @@ menu_settings::menu_settings(configuration* cf, Camera* camera, const Font& font
 	blackout->setFillColor(Color(0, 0, 0, 255 / 2));
 	blackout->setPosition(camera->getPosition().x - (camera->getScreenWidth() / 2), camera->getPosition().y - (camera->getScreenHeight() / 2));
 
-	btBack = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 410, font, L"Назад", Color::Black, Color::Yellow, Color::Yellow);
-	btSave = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 480, font, L"Сохранить", Color::Black, Color::Yellow, Color::Yellow);
+	btBack = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 410, font, L"РќР°Р·Р°Рґ", Color::Black, Color::Yellow, Color::Yellow);
+	btSave = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 480, font, L"РЎРѕС…СЂР°РЅРёС‚СЊ", Color::Black, Color::Yellow, Color::Yellow);
 
 	std::string* t = new std::string(intToStr(std::string, cf->screenWidth));
 	*t += " x ";
 	*t += intToStr(std::string, cf->screenHeight);
 
-	txVertS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, L"Вертикальная синхронизация:", Color::Yellow, Color::Black);
+	txVertS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, L"Р’РµСЂС‚РёРєР°Р»СЊРЅР°СЏ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ:", Color::Yellow, Color::Black);
 	txVertS->visible_bevel = false;
-	txFullS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 80, L"На весь экран:", Color::Yellow, Color::Black);
+	txFullS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 80, L"РќР° РІРµСЃСЊ СЌРєСЂР°РЅ:", Color::Yellow, Color::Black);
 	txFullS->visible_bevel = false;
 
-	txAnisF = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 140, L"Анизотропная фильтрация:", Color::Yellow, Color::Black);
+	txAnisF = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 140, L"РђРЅРёР·РѕС‚СЂРѕРїРЅР°СЏ С„РёР»СЊС‚СЂР°С†РёСЏ:", Color::Yellow, Color::Black);
 	txAnisF->visible_bevel = false;
 
-	txScreen = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 200, L"Разрешение экрана:", Color::Yellow, Color::Black);
+	txScreen = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 200, L"Р Р°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР°:", Color::Yellow, Color::Black);
 	txScreen->visible_bevel = false;
-	txSound = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 260, L"Звук:", Color::Yellow, Color::Black);
+	txSound = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 260, L"Р—РІСѓРє:", Color::Yellow, Color::Black);
 	txSound->visible_bevel = false;
-	txSoundV = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 320, L"Громкость звука:", Color::Yellow, Color::Black);
+	txSoundV = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 320, L"Р“СЂРѕРјРєРѕСЃС‚СЊ Р·РІСѓРєР°:", Color::Yellow, Color::Black);
 	txSoundV->visible_bevel = false;
 
 	combAnisF = new __interface_companents::combo_box(txAnisF->getSize().left + txAnisF->getSize().width + 5, txAnisF->getSize().top, Color::Yellow, Color::Yellow);
-	combAnisF->add(L"Выкл.", 0);
+	combAnisF->add(L"Р’С‹РєР».", 0);
 	combAnisF->add(L"2", 2);
 	combAnisF->add(L"6", 6);
 	combAnisF->add(L"8", 8);
@@ -91,7 +91,7 @@ menu_settings::menu_settings(configuration* cf, Camera* camera, const Font& font
 	cbSound = new __interface_companents::check_box((main->getGlobalBounds().width / 2) + 0 + (txVertS->getSize().width / 2) + 5, main->getGlobalBounds().top + 260, Color::Black, Color::Yellow, Color::Yellow);
 	cbSound->isCheck = cf->sound;
 
-	txMenuSettings = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 550, L"Настройки", Color::Yellow, Color::Black);
+	txMenuSettings = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 550, L"РќР°СЃС‚СЂРѕР№РєРё", Color::Yellow, Color::Black);
 	txMenuSettings->visible_bevel = false;
 	grFirst = new __interface_companents::gradient(FloatRect(Vector2f(100, 100), Vector2f(180, 5)), __interface_companents::gradient_direction::rightOnLeft, Color::Transparent, Color::Yellow);
 	grSecond = new __interface_companents::gradient(FloatRect(Vector2f(150, 150), Vector2f(180, 5)), __interface_companents::gradient_direction::leftOnRight, Color::Transparent, Color::Yellow);
@@ -120,8 +120,8 @@ menu_settings::menu_settings(configuration* cf, const Font& font, const Color& m
 	blackout->setFillColor(Color(0, 0, 0, 255 / 2));
 	blackout->setPosition(0, 0);
 
-	btBack = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 410, font, L"Назад", Color::Black, Color::Yellow, Color::Yellow);
-	btSave = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 480, font, L"Сохранить", Color::Black, Color::Yellow, Color::Yellow);
+	btBack = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 410, font, L"РќР°Р·Р°Рґ", Color::Black, Color::Yellow, Color::Yellow);
+	btSave = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 480, font, L"РЎРѕС…СЂР°РЅРёС‚СЊ", Color::Black, Color::Yellow, Color::Yellow);
 	btBack->setPosition(main->getGlobalBounds().left + (main->getGlobalBounds().width / 2) - (btBack->getSize().width / 2), main->getGlobalBounds().top + 410);
 	btSave->setPosition(main->getGlobalBounds().left + (main->getGlobalBounds().width / 2) - (btSave->getSize().width / 2), main->getGlobalBounds().top + 480);
 
@@ -130,19 +130,19 @@ menu_settings::menu_settings(configuration* cf, const Font& font, const Color& m
 	*t += " x ";
 	*t += intToStr(std::string, cf->screenHeight);
 
-	txVertS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, L"Вертикальная синхронизация:", Color::Yellow, Color::Black);
+	txVertS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, L"Р’РµСЂС‚РёРєР°Р»СЊРЅР°СЏ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ:", Color::Yellow, Color::Black);
 	txVertS->visible_bevel = false;
-	txFullS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 80, L"На весь экран:", Color::Yellow, Color::Black);
+	txFullS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 80, L"РќР° РІРµСЃСЊ СЌРєСЂР°РЅ:", Color::Yellow, Color::Black);
 	txFullS->visible_bevel = false;
 
-	txAnisF = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 140, L"Анизотропная фильтрация:", Color::Yellow, Color::Black);
+	txAnisF = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 140, L"РђРЅРёР·РѕС‚СЂРѕРїРЅР°СЏ С„РёР»СЊС‚СЂР°С†РёСЏ:", Color::Yellow, Color::Black);
 	txAnisF->visible_bevel = false;
 
-	txScreen = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 200, L"Разрешение экрана:", Color::Yellow, Color::Black);
+	txScreen = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 200, L"Р Р°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР°:", Color::Yellow, Color::Black);
 	txScreen->visible_bevel = false;
-	txSound = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 260, L"Звук:", Color::Yellow, Color::Black);
+	txSound = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 260, L"Р—РІСѓРє:", Color::Yellow, Color::Black);
 	txSound->visible_bevel = false;
-	txSoundV = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 320, L"Громкость звука:", Color::Yellow, Color::Black);
+	txSoundV = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 320, L"Р“СЂРѕРјРєРѕСЃС‚СЊ Р·РІСѓРєР°:", Color::Yellow, Color::Black);
 	txSoundV->visible_bevel = false;
 
 	txVertS->setPosition(main->getGlobalBounds().left + (main->getGlobalBounds().width / 2) - (txVertS->getSize().width / 2), main->getGlobalBounds().top + 20);
@@ -155,7 +155,7 @@ menu_settings::menu_settings(configuration* cf, const Font& font, const Color& m
 	txSoundV->setPosition(main->getGlobalBounds().left + (main->getGlobalBounds().width / 2) - (txSoundV->getSize().width / 2) - 50, main->getGlobalBounds().top + 320);
 
 	combAnisF = new __interface_companents::combo_box(txAnisF->getSize().left + txAnisF->getSize().width + 5, txAnisF->getSize().top, Color::Yellow, Color::Yellow);
-	combAnisF->add(L"Выкл.", 0);
+	combAnisF->add(L"Р’С‹РєР».", 0);
 	combAnisF->add(L"2", 2);
 	combAnisF->add(L"6", 6);
 	combAnisF->add(L"8", 8);
@@ -206,7 +206,7 @@ menu_settings::menu_settings(configuration* cf, const Font& font, const Color& m
 	cbFullS->setPosition(txFullS->getSize().left + txFullS->getSize().width + 5, main->getGlobalBounds().top + 80);
 	cbSound->setPosition(txSound->getSize().left + txSound->getSize().width + 5, main->getGlobalBounds().top + 260);
 
-	txMenuSettings = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 550, L"Настройки", Color::Yellow, Color::Black);
+	txMenuSettings = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 550, L"РќР°СЃС‚СЂРѕР№РєРё", Color::Yellow, Color::Black);
 	txMenuSettings->visible_bevel = false;
 	grFirst = new __interface_companents::gradient(FloatRect(Vector2f(100, 100), Vector2f(180, 5)), __interface_companents::gradient_direction::rightOnLeft, Color::Transparent, Color::Yellow);
 	grSecond = new __interface_companents::gradient(FloatRect(Vector2f(150, 150), Vector2f(180, 5)), __interface_companents::gradient_direction::leftOnRight, Color::Transparent, Color::Yellow);
@@ -377,4 +377,4 @@ void menu_settings::render(RenderWindow& wd) noexcept {
 		grSecond->render(wd);
 	}
 }
-//------------------------Меню-настроек-menu_settings-Конец---------------------------------------
+//------------------------РњРµРЅСЋ-РЅР°СЃС‚СЂРѕРµРє-menu_settings-РљРѕРЅРµС†---------------------------------------

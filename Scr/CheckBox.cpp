@@ -1,6 +1,6 @@
-#include "CheckBox.hpp"
+п»ї#include "CheckBox.hpp"
 
-//------------------------------Чекбокс-check_box-Начало--------------------------------------
+//------------------------------Р§РµРєР±РѕРєСЃ-check_box-РќР°С‡Р°Р»Рѕ--------------------------------------
 __interface_companents::check_box::check_box(int x, int y, const Color& maincl, const Color& bordercl, const Color& checkcl) :
 	BaseInerface(x, y, FloatRect(Vector2f(0, 0), Vector2f(0, 0))),
 	isCheck(false)
@@ -69,4 +69,4 @@ void __interface_companents::check_box::invers(bool operation) {
 void __interface_companents::check_box::invers() {
 	isCheck = isCheck ? false : true;
 }
-//------------------------------Чекбокс-check_box-Конец---------------------------------------
+//------------------------------Р§РµРєР±РѕРєСЃ-check_box-РљРѕРЅРµС†---------------------------------------

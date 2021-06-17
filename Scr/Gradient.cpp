@@ -1,6 +1,6 @@
-#include "Gradient.hpp"
+п»ї#include "Gradient.hpp"
 
-//------------------------------Градиент-gradient-Начало---------------------------------------
+//------------------------------Р“СЂР°РґРёРµРЅС‚-gradient-РќР°С‡Р°Р»Рѕ---------------------------------------
 __interface_companents::gradient::gradient(const FloatRect& rt, int gd, const Color& first, const Color& second) :
 	BaseInerface(0, 0, rt)
 {
@@ -78,4 +78,4 @@ void __interface_companents::gradient::render(RenderWindow& wd) noexcept {
 		wd.draw(*rect);
 	}
 }
-//-------------------------------Градиент-gradient-Конец---------------------------------------
+//-------------------------------Р“СЂР°РґРёРµРЅС‚-gradient-РљРѕРЅРµС†---------------------------------------

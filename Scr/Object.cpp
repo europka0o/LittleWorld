@@ -1,6 +1,6 @@
-#include "Object.hpp"
+п»ї#include "Object.hpp"
 
-//---------------------------Статический-объект-ObjectStatic-Начало------------------------------
+//---------------------------РЎС‚Р°С‚РёС‡РµСЃРєРёР№-РѕР±СЉРµРєС‚-ObjectStatic-РќР°С‡Р°Р»Рѕ------------------------------
 ObjectStatic::ObjectStatic(const Sprite& ptr_sprite, float X, float Y) :
 	visible(true)
 {
@@ -37,9 +37,9 @@ void ObjectStatic::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
 		wd.draw(*ptr_sprite);
 	}
 }
-//----------------------------------Статический-объект-ObjectStatic-Конец-------------------------------
+//----------------------------------РЎС‚Р°С‚РёС‡РµСЃРєРёР№-РѕР±СЉРµРєС‚-ObjectStatic-РљРѕРЅРµС†-------------------------------
 
-//-------------------------------Анимированный-объект-ObjectAnimated-Начало------------------------------
+//-------------------------------РђРЅРёРјРёСЂРѕРІР°РЅРЅС‹Р№-РѕР±СЉРµРєС‚-ObjectAnimated-РќР°С‡Р°Р»Рѕ------------------------------
 ObjectAnimated::ObjectAnimated(const Sprite& ptr_sprite, float X, float Y) :
 	frame(0),
 	end(false),
@@ -52,4 +52,4 @@ ObjectAnimated::~ObjectAnimated() {}
 void __fastcall ObjectAnimated::update(float time) {
 	return;
 }
-//-------------------------------Анимированный-объект-ObjectAnimated-Конец-------------------------------
+//-------------------------------РђРЅРёРјРёСЂРѕРІР°РЅРЅС‹Р№-РѕР±СЉРµРєС‚-ObjectAnimated-РљРѕРЅРµС†-------------------------------

@@ -1,4 +1,4 @@
-#include "InterfBase.hpp"
+﻿#include "InterfBase.hpp"
 #pragma once
 
 //#ifndef _CHECKBOX_H_

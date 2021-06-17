@@ -1,4 +1,4 @@
-#include "BackgroundColor.hpp"
+п»ї#include "BackgroundColor.hpp"
 #include "Bar.hpp"
 #include "Camera.hpp"
 #include "DestroerCastle.hpp"
@@ -42,12 +42,12 @@ class Game {
 		sf::Vector2f realPos;
 		uint32_t CENTER_SCREEN_X;
 		uint32_t CENTER_SCREEN_Y;
-		int volume; //Громкость звука
-		float barhp; //Здоровье
-		float barmp; //Текущее значение маны
-		float barmp_max; //Максимальное значение маны, нужно для восстановления маны
-		int mp_need_cast_expl; //Нужное кол-во маны для взрыва
-		int mp_need_cast_ice; //Нужное кол-во маны для призыва кристалла
+		int volume; //Р“СЂРѕРјРєРѕСЃС‚СЊ Р·РІСѓРєР°
+		float barhp; //Р—РґРѕСЂРѕРІСЊРµ
+		float barmp; //РўРµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РјР°РЅС‹
+		float barmp_max; //РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РјР°РЅС‹, РЅСѓР¶РЅРѕ РґР»СЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ РјР°РЅС‹
+		int mp_need_cast_expl; //РќСѓР¶РЅРѕРµ РєРѕР»-РІРѕ РјР°РЅС‹ РґР»СЏ РІР·СЂС‹РІР°
+		int mp_need_cast_ice; //РќСѓР¶РЅРѕРµ РєРѕР»-РІРѕ РјР°РЅС‹ РґР»СЏ РїСЂРёР·С‹РІР° РєСЂРёСЃС‚Р°Р»Р»Р°
 		
 	public:
 		Game();

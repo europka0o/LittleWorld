@@ -1,4 +1,4 @@
-#include "InterfBase.hpp"
+п»ї#include "InterfBase.hpp"
 #include "Camera.hpp"
 #pragma once
 
@@ -20,8 +20,8 @@ namespace __interface_companents {
 			void __fastcall setPosition(int x, int y) override;
 			void render(RenderWindow& wd) noexcept override;
 			void resize(int size);
-			void freeze(Camera* camera, const axes_i& xy) noexcept; //Замораживает позицию компонента относительно камеры
-			void freeze(Camera* camera, int x, int y) noexcept; //Замораживает позицию компонента относительно камеры
+			void freeze(Camera* camera, const axes_i& xy) noexcept; //Р—Р°РјРѕСЂР°Р¶РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РєРѕРјРїРѕРЅРµРЅС‚Р° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°РјРµСЂС‹
+			void freeze(Camera* camera, int x, int y) noexcept; //Р—Р°РјРѕСЂР°Р¶РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РєРѕРјРїРѕРЅРµРЅС‚Р° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°РјРµСЂС‹
 			bool __fastcall isAction(int x, int y);
 			bool isAction(const axes_i& xy);
 	};

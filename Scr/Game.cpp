@@ -1,4 +1,4 @@
-#if defined _WIN32 || defined _WIN64 //Для windows
+п»ї#if defined _WIN32 || defined _WIN64 //Р”Р»СЏ windows
 
 #include <windows.h>
 
@@ -114,7 +114,7 @@ int Game::Run() {
 	menu_settings *st_men = new menu_settings(config, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), Color::Color(38, 38, 38, 255), Color::Yellow);
 	st_men->blackout_visible = true;
 
-	__interface_companents::message *message_settings = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Изменения вступят в силу после перезапуска игры", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
+	__interface_companents::message *message_settings = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"РР·РјРµРЅРµРЅРёСЏ РІСЃС‚СѓРїСЏС‚ РІ СЃРёР»Сѓ РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР° РёРіСЂС‹", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
 
 	auto random {
 		[](__int32 _from, __int32 _do)->__int32 {
@@ -298,43 +298,43 @@ int Game::LvlRun() {
 	mlt->resize(__interface_companents::text_size::normal);
 	CameraMain = new Camera(CENTER_SCREEN_X, CENTER_SCREEN_Y, config->screenWidth, config->screenHeight);
 
-	Castle = new ObjectStatic(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 2), 0, 0); //Замок
+	Castle = new ObjectStatic(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 2), 0, 0); //Р—Р°РјРѕРє
 	Castle->sprite_rect = IntRect(0, 0, 400, 1500);
 	Castle->rect_collis->setBounds(IntRect(0, 0, 400, 1500));
-	int numlvl = 0; //Номер волны
-	bool change_numlvl = false; //Смена волны
-	bool cooldown_expl = false; //Кулдаун для метеорита
+	int numlvl = 0; //РќРѕРјРµСЂ РІРѕР»РЅС‹
+	bool change_numlvl = false; //РЎРјРµРЅР° РІРѕР»РЅС‹
+	bool cooldown_expl = false; //РљСѓР»РґР°СѓРЅ РґР»СЏ РјРµС‚РµРѕСЂРёС‚Р°
 
-	float timer; //Глобальное время
+	float timer; //Р“Р»РѕР±Р°Р»СЊРЅРѕРµ РІСЂРµРјСЏ
 
-	HP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, 5, barhp, 0, L"HP:", Color::White, Color::Red, Color::Black); //Полоса здоровья
-	MP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, HP->getSize().left + HP->getSize().width + 5, barmp_max, 0, L"MP:", Color::White, Color::Blue, Color::Black); //Полоса маны
+	HP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, 5, barhp, 0, L"HP:", Color::White, Color::Red, Color::Black); //РџРѕР»РѕСЃР° Р·РґРѕСЂРѕРІСЊСЏ
+	MP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, HP->getSize().left + HP->getSize().width + 5, barmp_max, 0, L"MP:", Color::White, Color::Blue, Color::Black); //РџРѕР»РѕСЃР° РјР°РЅС‹
 
-	__interface_companents::message *message_end = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Захватчики разрушили ваш замок, вы проиграли", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
-	__interface_companents::message *message_vic = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Вы победили всех нападающих противников! Поздравляем!", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
-	__interface_companents::message *message_settings = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Изменения вступят в силу после перезапуска игры", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
+	__interface_companents::message *message_end = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Р—Р°С…РІР°С‚С‡РёРєРё СЂР°Р·СЂСѓС€РёР»Рё РІР°С€ Р·Р°РјРѕРє, РІС‹ РїСЂРѕРёРіСЂР°Р»Рё", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
+	__interface_companents::message *message_vic = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Р’С‹ РїРѕР±РµРґРёР»Рё РІСЃРµС… РЅР°РїР°РґР°СЋС‰РёС… РїСЂРѕС‚РёРІРЅРёРєРѕРІ! РџРѕР·РґСЂР°РІР»СЏРµРј!", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
+	__interface_companents::message *message_settings = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"РР·РјРµРЅРµРЅРёСЏ РІСЃС‚СѓРїСЏС‚ РІ СЃРёР»Сѓ РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР° РёРіСЂС‹", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
 
-	menu_settings *st_men = new menu_settings(config, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), Color::Color(38, 38, 38, 255), Color::Yellow); //Меню настроек
-	men = new menu_pause(CameraMain, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), Color::Color(38, 38, 38, 255), Color::Yellow); //Главное меню
+	menu_settings *st_men = new menu_settings(config, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), Color::Color(38, 38, 38, 255), Color::Yellow); //РњРµРЅСЋ РЅР°СЃС‚СЂРѕРµРє
+	men = new menu_pause(CameraMain, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), Color::Color(38, 38, 38, 255), Color::Yellow); //Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ
 	men->active = false;
 	st_men->blackout_visible = false;
 			
-	lvlInfo = new __interface_companents::text_box(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 0, 0, L"Волна 1", Color::Black, Color::Yellow); //Надпись с номером волны
+	lvlInfo = new __interface_companents::text_box(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 0, 0, L"Р’РѕР»РЅР° 1", Color::Black, Color::Yellow); //РќР°РґРїРёСЃСЊ СЃ РЅРѕРјРµСЂРѕРј РІРѕР»РЅС‹
 	lvlInfo->resize(__interface_companents::text_size::medium);
 	lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 			
 
-	mlt->add(L"Тревога!");
-	mlt->add(L"На наш замок нападают");
+	mlt->add(L"РўСЂРµРІРѕРіР°!");
+	mlt->add(L"РќР° РЅР°С€ Р·Р°РјРѕРє РЅР°РїР°РґР°СЋС‚");
 
-	float Second = 0; //Накапливает время в секундах
-	float NacopSec = 0; //Накапливает время в секундах
-	float NacopSec2 = 0; //Накапливает время в секундах
+	float Second = 0; //РќР°РєР°РїР»РёРІР°РµС‚ РІСЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С…
+	float NacopSec = 0; //РќР°РєР°РїР»РёРІР°РµС‚ РІСЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С…
+	float NacopSec2 = 0; //РќР°РєР°РїР»РёРІР°РµС‚ РІСЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С…
 
-//------------------------------------------------------------------------------------------------------------------------Звуки и музыка
-	SoundBuffer shootBuffer; //Создаём буфер для звука																		
-	shootBuffer.loadFromFile("Sounds/expls.ogg"); //Загружаем в него звук													
-	Sound expl_sound(shootBuffer); //Создаем звук и загружаем в него звук из буфера												
+//------------------------------------------------------------------------------------------------------------------------Р—РІСѓРєРё Рё РјСѓР·С‹РєР°
+	SoundBuffer shootBuffer; //РЎРѕР·РґР°С‘Рј Р±СѓС„РµСЂ РґР»СЏ Р·РІСѓРєР°																		
+	shootBuffer.loadFromFile("Sounds/expls.ogg"); //Р—Р°РіСЂСѓР¶Р°РµРј РІ РЅРµРіРѕ Р·РІСѓРє													
+	Sound expl_sound(shootBuffer); //РЎРѕР·РґР°РµРј Р·РІСѓРє Рё Р·Р°РіСЂСѓР¶Р°РµРј РІ РЅРµРіРѕ Р·РІСѓРє РёР· Р±СѓС„РµСЂР°												
 			
 	expl_sound.setVolume(volume);
 
@@ -358,8 +358,8 @@ int Game::LvlRun() {
 	attackIceBuffer.loadFromFile("Sounds/attack_ice.ogg");
 	list<Sound*> *attack_ice_sound = new list<Sound*>;
 		
-	Music *music_main_theme = new Music; //Создаем объект музыки																
-	music_main_theme->openFromFile("Sounds/main_theme.ogg"); //Загружаем файл		
+	Music *music_main_theme = new Music; //РЎРѕР·РґР°РµРј РѕР±СЉРµРєС‚ РјСѓР·С‹РєРё																
+	music_main_theme->openFromFile("Sounds/main_theme.ogg"); //Р—Р°РіСЂСѓР¶Р°РµРј С„Р°Р№Р»		
 	music_main_theme->setVolume(volume);
 	music_main_theme->play();
 
@@ -410,8 +410,8 @@ int Game::LvlRun() {
 				
 		music_main_theme->setLoop(true);
 
-		timer = clock.getElapsedTime().asMicroseconds(); //Получаем время в микросек
-		Second = clock.getElapsedTime().asSeconds(); //Получаем время в секундах
+		timer = clock.getElapsedTime().asMicroseconds(); //РџРѕР»СѓС‡Р°РµРј РІСЂРµРјСЏ РІ РјРёРєСЂРѕСЃРµРє
+		Second = clock.getElapsedTime().asSeconds(); //РџРѕР»СѓС‡Р°РµРј РІСЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С…
 		clock.restart();
 		timer /= 1000;
 		//timer -= 10;
@@ -422,16 +422,16 @@ int Game::LvlRun() {
 			if (event.type == Event::Closed) {
 				window->close();
 			}
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Меню и его обработчики событий
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------РњРµРЅСЋ Рё РµРіРѕ РѕР±СЂР°Р±РѕС‚С‡РёРєРё СЃРѕР±С‹С‚РёР№
 			if (!message_end->active && !message_vic->active) {
-				if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left && !men->active) { //Если нажата левая кнопка мыши
+				if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left && !men->active) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° Р»РµРІР°СЏ РєРЅРѕРїРєР° РјС‹С€Рё
 					if (barmp >= mp_need_cast_expl) {
 						Expl_list->push_back(new Meteor(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 0), realPos.x - 200, realPos.y - 200));
 						barmp -= mp_need_cast_expl;
 					}
 				}
 
-				if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Right && !men->active) { //Если нажата правая кнопка мыши
+				if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Right && !men->active) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РїСЂР°РІР°СЏ РєРЅРѕРїРєР° РјС‹С€Рё
 					if (barmp >= mp_need_cast_ice) {
 						if (IceList->empty()) {
 							IceList->push_back(new IceBall(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 6), realPos.x - 55, realPos.y - 65, 200));
@@ -443,52 +443,52 @@ int Game::LvlRun() {
 					}
 				}
 
-				if (men->active && !st_men->active) { //Меню паузы
-					if (men->btContinue->isAction(realPos.x, realPos.y)) { //Если нажата кнопка продолжить 
+				if (men->active && !st_men->active) { //РњРµРЅСЋ РїР°СѓР·С‹
+					if (men->btContinue->isAction(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РїСЂРѕРґРѕР»Р¶РёС‚СЊ 
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							men->active = false;
 						}
 					}
 
-					if (men->btOptions->isAction(realPos.x, realPos.y)) { //Если нажата кнопка настройки
+					if (men->btOptions->isAction(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РЅР°СЃС‚СЂРѕР№РєРё
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							st_men->active = true;
 						}
 					}
 
-					if (men->btExit->isAction(realPos.x, realPos.y)) { //Если нажата кнопка выйти
+					if (men->btExit->isAction(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РІС‹Р№С‚Рё
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							free_memory_list();
 							return lvlnum::menuGame;
 						}
 					}
-				} else if (st_men->active && !message_settings->active) { //Меню настроек
-					if (st_men->btBack->isAction(realPos.x, realPos.y)) { //Если нажата кнопка назад
+				} else if (st_men->active && !message_settings->active) { //РњРµРЅСЋ РЅР°СЃС‚СЂРѕРµРє
+					if (st_men->btBack->isAction(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РЅР°Р·Р°Рґ
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							st_men->active = false;
 							st_men->backSettings(config);
 						}
 					}
 
-					if (st_men->cbFullS->getSize().contains(realPos.x, realPos.y)) { //Если нажат чекбокс на весь экран
+					if (st_men->cbFullS->getSize().contains(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚ С‡РµРєР±РѕРєСЃ РЅР° РІРµСЃСЊ СЌРєСЂР°РЅ
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							st_men->cbFullS->invers();
 						}
 					}
 
-					if (st_men->cbVertS->getSize().contains(realPos.x, realPos.y)) { //Если нажат чекбокс верикальная синхронизация
+					if (st_men->cbVertS->getSize().contains(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚ С‡РµРєР±РѕРєСЃ РІРµСЂРёРєР°Р»СЊРЅР°СЏ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							st_men->cbVertS->invers();
 						}
 					}
 
-					if (st_men->cbSound->getSize().contains(realPos.x, realPos.y)) { //Если нажат чекбокс звука
+					if (st_men->cbSound->getSize().contains(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚ С‡РµРєР±РѕРєСЃ Р·РІСѓРєР°
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							st_men->cbSound->invers();
 						}
 					}
 
-					if (st_men->btSave->isAction(realPos.x, realPos.y)) { //Если нажата кнопка сохранить
+					if (st_men->btSave->isAction(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° СЃРѕС…СЂР°РЅРёС‚СЊ
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							if (st_men->saveSettings(config) == static_cast<int>(settings_save_code::other)) {
 								message_settings->active = true;
@@ -516,23 +516,23 @@ int Game::LvlRun() {
 					}
 
 					if (st_men->combScreen->isAction(realPos.x, realPos.y)) { 
-						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) { //Если нажата левая кнопка мыши на комбобоксе разрешение экрана
+						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° Р»РµРІР°СЏ РєРЅРѕРїРєР° РјС‹С€Рё РЅР° РєРѕРјР±РѕР±РѕРєСЃРµ СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР°
 							st_men->combScreen->next();
-						} else if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Right) { //Если нажата правая кнопка мыши на комбобоксе разрешение экрана
+						} else if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Right) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РїСЂР°РІР°СЏ РєРЅРѕРїРєР° РјС‹С€Рё РЅР° РєРѕРјР±РѕР±РѕРєСЃРµ СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР°
 							st_men->combScreen->back();
 						}
 					}
 						
 					if (st_men->combSoundV->isAction(realPos.x, realPos.y)) {
-						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) { //Если нажата левая кнопка мыши на громкости звука
+						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° Р»РµРІР°СЏ РєРЅРѕРїРєР° РјС‹С€Рё РЅР° РіСЂРѕРјРєРѕСЃС‚Рё Р·РІСѓРєР°
 							st_men->combSoundV->next();
-						} else if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Right) { //Если нажата правая кнопка мыши на громкости звука
+						} else if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Right) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РїСЂР°РІР°СЏ РєРЅРѕРїРєР° РјС‹С€Рё РЅР° РіСЂРѕРјРєРѕСЃС‚Рё Р·РІСѓРєР°
 							st_men->combSoundV->back();
 						}
 					}
 
 				} else {
-					if (message_settings->btOk->isAction(realPos.x, realPos.y)) { //Если нажата кнопка ок в сообщении
+					if (message_settings->btOk->isAction(realPos.x, realPos.y)) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РѕРє РІ СЃРѕРѕР±С‰РµРЅРёРё
 						if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 							message_settings->active = false;
 							st_men->active = false;
@@ -540,7 +540,7 @@ int Game::LvlRun() {
 					}
 				}
 			} else {
-				if (message_end->btOk->isAction(realPos.x, realPos.y) && message_end->active) { //Если нажата кнопка ок в сообщении о проигрыше
+				if (message_end->btOk->isAction(realPos.x, realPos.y) && message_end->active) { //Р•СЃР»Рё РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РѕРє РІ СЃРѕРѕР±С‰РµРЅРёРё Рѕ РїСЂРѕРёРіСЂС‹С€Рµ
 					if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left) {
 						free_memory_list();
 						return lvlnum::menuGame;
@@ -559,19 +559,19 @@ int Game::LvlRun() {
 		}
 
 		if (!message_end->active) {
-			if (Keyboard::isKeyPressed(Keyboard::Escape)) { //Выход
+			if (Keyboard::isKeyPressed(Keyboard::Escape)) { //Р’С‹С…РѕРґ
 				men->active = true;
 			}
 
 			if (change_numlvl) {
 				switch (numlvl) {
-				case 1: //Первая волна
+				case 1: //РџРµСЂРІР°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 2");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 2");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 300, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 400, 45));
@@ -590,7 +590,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 980, 800, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 950, 920, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 740, 990, 45));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 50, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 70, 150, 45));
@@ -608,7 +608,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 980, 300, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 950, 350, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 740, 400, 45));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 180, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 70, 260, 45));
@@ -630,15 +630,15 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 2: //Вторая волна
+				case 2: //Р’С‚РѕСЂР°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 3");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 3");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
 					mp_need_cast_expl -= 4; //mp_need_cast_expl = 16
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 200, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 230, 45));
@@ -668,7 +668,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1900, 560, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1910, 800, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1920, 920, 45));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 200, 50, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 150, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 114, 200, 45));
@@ -697,7 +697,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1900, 370, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1910, 420, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1920, 470, 45));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 200, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 180, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 114, 260, 45));
@@ -730,15 +730,15 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 3: //Третья волна
+				case 3: //РўСЂРµС‚СЊСЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 4");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 4");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
 					mp_need_cast_expl -= 4; //mp_need_cast_expl = 12
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 300, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 400, 45));
@@ -769,7 +769,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1900, 560, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1910, 800, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1920, 920, 45));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 50, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 70, 150, 45));
@@ -799,7 +799,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1900, 330, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1910, 370, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1920, 410, 45));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 150, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 70, 200, 45));
@@ -833,15 +833,15 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 4: //Четвертая волна
+				case 4: //Р§РµС‚РІРµСЂС‚Р°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 5");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 5");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
 					mp_need_cast_expl -= 2; //mp_need_cast_expl = 10
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 200, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 230, 45));
@@ -872,7 +872,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1950, 1130, 45));
 
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 2100, 600, 650));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 200, 50, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 150, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 114, 200, 45));
@@ -902,7 +902,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1950, 450, 45));
 
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 2100, 400, 650));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 200, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 150, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 114, 200, 45));
@@ -936,15 +936,15 @@ int Game::LvlRun() {
 		
 					change_numlvl = false;
 					break;
-				case 5: //Пятая волна
+				case 5: //РџСЏС‚Р°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 6");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 6");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
 					mp_need_cast_ice -= 15; //mp_need_cast_ice = 85
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 230, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 114, 400, 45));
@@ -975,7 +975,7 @@ int Game::LvlRun() {
 
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 1900, 200, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 1870, 700, 500));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 50, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 114, 150, 45));
@@ -1005,7 +1005,7 @@ int Game::LvlRun() {
 
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 1900, 200, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 1870, 450, 500));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 29, 150, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 114, 200, 45));
@@ -1040,15 +1040,15 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 6: //Шестая волна
+				case 6: //РЁРµСЃС‚Р°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 7");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 7");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
 					mp_need_cast_expl -= 1; //mp_need_cast_expl = 9
 							
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 20, 200, 400));
 
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1200, 100, 45));
@@ -1072,7 +1072,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1500, 1200, 45));
 
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 1900, 600, 500));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 20, 200, 400));
 
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1200, 50, 45));
@@ -1096,7 +1096,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1200, 450, 45));
 
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 1900, 300, 500));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 20, 200, 400));
 
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 1200, 100, 45));
@@ -1124,15 +1124,15 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 7: //Седьмая волна
+				case 7: //РЎРµРґСЊРјР°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 8");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 8");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
 					mp_need_cast_ice -= 15; //mp_need_cast_ice = 70
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 120, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 115, 250, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 110, 300, 45));
@@ -1144,7 +1144,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 120, 1200, 45));
 
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 1000, 700, 1000));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 120, 50, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 115, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 110, 150, 45));
@@ -1156,7 +1156,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 120, 450, 45));
 
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 1000, 250, 1000));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 120, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 115, 150, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 110, 200, 45));
@@ -1172,13 +1172,13 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 8: //Восьмая волна
+				case 8: //Р’РѕСЃСЊРјР°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Волна 9");
+					lvlInfo->setString(L"Р’РѕР»РЅР° 9");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 							
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 450, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 650, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 850, 45));
@@ -1190,7 +1190,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 300, 300, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 350, 600, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 700, 800, 500));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 200, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 300, 45));
@@ -1202,7 +1202,7 @@ int Game::LvlRun() {
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 300, 200, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 350, 300, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 700, 400, 500));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 250, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 450, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 105, 550, 45));
@@ -1218,23 +1218,23 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 9: //Девятая волна
+				case 9: //Р”РµРІСЏС‚Р°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Последняя волна");
+					lvlInfo->setString(L"РџРѕСЃР»РµРґРЅСЏСЏ РІРѕР»РЅР°");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 100, 700, 1000));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 500, 300, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 700, 500, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 570, 900, 500));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 100, 200, 1000));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 500, 150, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 700, 200, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 570, 250, 500));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 100, 300, 1000));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 500, 300, 500));
 						EnemyList->push_back(new Knight(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 5), config->screenWidth + 700, 400, 500));
@@ -1243,16 +1243,16 @@ int Game::LvlRun() {
 
 					change_numlvl = false;
 					break;
-				case 10: //Десятая волна
+				case 10: //Р”РµСЃСЏС‚Р°СЏ РІРѕР»РЅР°
 					lvlInfo->visible = false;
-					lvlInfo->setString(L"Победа!");
+					lvlInfo->setString(L"РџРѕР±РµРґР°!");
 					lvlInfo->resize(__interface_companents::text_size::medium);
 					lvlInfo->setPosition((config->screenWidth / 2) - lvlInfo->getSize().width / 2, (config->screenHeight / 2) - lvlInfo->getSize().height / 2);
 
 					mp_need_cast_ice -= 15; //mp_need_cast_ice = 55
 					mp_need_cast_expl -= 1; //mp_need_cast_expl = 8
 
-					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Если разрешение экрана 2560 х 1440
+					if (config->screenWidth == 2560 && config->screenHeight == 1440) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° 2560 С… 1440
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 300, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 400, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 70, 500, 45));
@@ -1288,7 +1288,7 @@ int Game::LvlRun() {
 
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 2000, 100, 1000));
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 2700, 700, 1000));
-					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Если разрешение 1280 х 720
+					} else if (config->screenWidth == 1280 && config->screenHeight == 720) { //Р•СЃР»Рё СЂР°Р·СЂРµС€РµРЅРёРµ 1280 С… 720
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 50, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 70, 150, 45));
@@ -1324,7 +1324,7 @@ int Game::LvlRun() {
 
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 2000, 50, 1000));
 						EnemyList->push_back(new DestroerCastle(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 4), config->screenWidth + 2700, 300, 1000));
-					} else { //Если любое другое
+					} else { //Р•СЃР»Рё Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 130, 100, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 100, 150, 45));
 						EnemyList->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 70, 200, 45));
@@ -1372,16 +1372,16 @@ int Game::LvlRun() {
 				}
 			}
 
-			if (EnemyList->empty()) { //Если врагов нет
+			if (EnemyList->empty()) { //Р•СЃР»Рё РІСЂР°РіРѕРІ РЅРµС‚
 				NacopSec2 += Second;
 				lvlInfo->visible = true;
-				if (NacopSec2 >= 3) { //Через 3 секунды перехом на следующую волну
+				if (NacopSec2 >= 3) { //Р§РµСЂРµР· 3 СЃРµРєСѓРЅРґС‹ РїРµСЂРµС…РѕРј РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ РІРѕР»РЅСѓ
 					numlvl++;
 					change_numlvl = true;
 					barmp = barmp_max;
 				}
 
-				if (numlvl == 11) { //Если все волны пройдены, то победа
+				if (numlvl == 11) { //Р•СЃР»Рё РІСЃРµ РІРѕР»РЅС‹ РїСЂРѕР№РґРµРЅС‹, С‚Рѕ РїРѕР±РµРґР°
 					music_main_theme->stop();
 					victory_sound.setVolume(volume);
 					victory_sound.play();
@@ -1391,7 +1391,7 @@ int Game::LvlRun() {
 				NacopSec2 = 0;
 			}
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Регистрация попаданий
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Р РµРіРёСЃС‚СЂР°С†РёСЏ РїРѕРїР°РґР°РЅРёР№
 			if (!men->active) {
 
 				for (list<Meteor*>::iterator it_expl = Expl_list->begin(); it_expl != Expl_list->end();) { 
@@ -1517,7 +1517,7 @@ int Game::LvlRun() {
 						it_ic++;
 					}
 				}
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Логика поведения врагов
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Р›РѕРіРёРєР° РїРѕРІРµРґРµРЅРёСЏ РІСЂР°РіРѕРІ
 				for (list<Sound*>::iterator it_sd = attack_sound->begin(); it_sd != attack_sound->end();) {
 					if (!(*it_sd)->getStatus()) {
 						delete* it_sd;
@@ -1550,7 +1550,7 @@ int Game::LvlRun() {
 				MP->freeze(CameraMain, 5, 40);
 			}
 		}
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Отрисовка
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------РћС‚СЂРёСЃРѕРІРєР°
 				
 		window->clear();
 		MainWrd->render(*window);
@@ -1616,74 +1616,74 @@ int Game::lvlTraining() {
 
 	auto *mlt = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
 	
-	mlt->add(L"                           Добро пожаловать!");
-	mlt->add(L"Это тренировочный уровень, здесь вам расскажут");
-	mlt->add(L"и покажут основные принципы и механику игры.");
-	mlt->add(L"Если вы хотите его пропустить, то нажмите ENTER, а если");
-	mlt->add(L"хотите продолжить нажмите левую кнопку мыши.");
+	mlt->add(L"                           Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ!");
+	mlt->add(L"Р­С‚Рѕ С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ СѓСЂРѕРІРµРЅСЊ, Р·РґРµСЃСЊ РІР°Рј СЂР°СЃСЃРєР°Р¶СѓС‚");
+	mlt->add(L"Рё РїРѕРєР°Р¶СѓС‚ РѕСЃРЅРѕРІРЅС‹Рµ РїСЂРёРЅС†РёРїС‹ Рё РјРµС…Р°РЅРёРєСѓ РёРіСЂС‹.");
+	mlt->add(L"Р•СЃР»Рё РІС‹ С…РѕС‚РёС‚Рµ РµРіРѕ РїСЂРѕРїСѓСЃС‚РёС‚СЊ, С‚Рѕ РЅР°Р¶РјРёС‚Рµ ENTER, Р° РµСЃР»Рё");
+	mlt->add(L"С…РѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ РЅР°Р¶РјРёС‚Рµ Р»РµРІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё.");
 	mlt->resize(__interface_companents::text_size::normal);
 
 	auto *mltAboutHP = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
-	mltAboutHP->add(L"HP - health points(с англ. очки здоровья)");
-	mltAboutHP->add(L"Этот идикатор отображает количество ваших жизней,");
-	mltAboutHP->add(L"когда полоса индикатора дойдет до конца, ваш замок");
-	mltAboutHP->add(L"будет разрушен, и, следовательно, вы проиграете.");
-	mltAboutHP->add(L"Старайтесь этого не допускать.");
-	mltAboutHP->add(L"Нажмите левую кнопку мыши чтобы продолжить");
+	mltAboutHP->add(L"HP - health points(СЃ Р°РЅРіР». РѕС‡РєРё Р·РґРѕСЂРѕРІСЊСЏ)");
+	mltAboutHP->add(L"Р­С‚РѕС‚ РёРґРёРєР°С‚РѕСЂ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РІР°С€РёС… Р¶РёР·РЅРµР№,");
+	mltAboutHP->add(L"РєРѕРіРґР° РїРѕР»РѕСЃР° РёРЅРґРёРєР°С‚РѕСЂР° РґРѕР№РґРµС‚ РґРѕ РєРѕРЅС†Р°, РІР°С€ Р·Р°РјРѕРє");
+	mltAboutHP->add(L"Р±СѓРґРµС‚ СЂР°Р·СЂСѓС€РµРЅ, Рё, СЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ, РІС‹ РїСЂРѕРёРіСЂР°РµС‚Рµ.");
+	mltAboutHP->add(L"РЎС‚Р°СЂР°Р№С‚РµСЃСЊ СЌС‚РѕРіРѕ РЅРµ РґРѕРїСѓСЃРєР°С‚СЊ.");
+	mltAboutHP->add(L"РќР°Р¶РјРёС‚Рµ Р»РµРІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ");
 	mltAboutHP->visible = false;
 	mltAboutHP->resize(__interface_companents::text_size::normal);
 
 	auto *mltAboutMP = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
-	mltAboutMP->add(L"MP - mana points(с англ. очки маны)");
-	mltAboutMP->add(L"Мана нужна для того чтобы вы могли призывать различные");
-	mltAboutMP->add(L"разрушительные заклинания, способные навредить противникам.");
-	mltAboutMP->add(L"В отличии от HP мана сама со временем восстанавливается.");
-	mltAboutMP->add(L"Если индикатор маны дойдет до конца, то вы утратите способность");
-	mltAboutMP->add(L"призывать заклинания, пока мана не восстановится до необходимого");
-	mltAboutMP->add(L"заклинанию количества очков.");
-	mltAboutMP->add(L"Нажмите левую кнопку мыши чтобы продолжить");
+	mltAboutMP->add(L"MP - mana points(СЃ Р°РЅРіР». РѕС‡РєРё РјР°РЅС‹)");
+	mltAboutMP->add(L"РњР°РЅР° РЅСѓР¶РЅР° РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РІС‹ РјРѕРіР»Рё РїСЂРёР·С‹РІР°С‚СЊ СЂР°Р·Р»РёС‡РЅС‹Рµ");
+	mltAboutMP->add(L"СЂР°Р·СЂСѓС€РёС‚РµР»СЊРЅС‹Рµ Р·Р°РєР»РёРЅР°РЅРёСЏ, СЃРїРѕСЃРѕР±РЅС‹Рµ РЅР°РІСЂРµРґРёС‚СЊ РїСЂРѕС‚РёРІРЅРёРєР°Рј.");
+	mltAboutMP->add(L"Р’ РѕС‚Р»РёС‡РёРё РѕС‚ HP РјР°РЅР° СЃР°РјР° СЃРѕ РІСЂРµРјРµРЅРµРј РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ.");
+	mltAboutMP->add(L"Р•СЃР»Рё РёРЅРґРёРєР°С‚РѕСЂ РјР°РЅС‹ РґРѕР№РґРµС‚ РґРѕ РєРѕРЅС†Р°, С‚Рѕ РІС‹ СѓС‚СЂР°С‚РёС‚Рµ СЃРїРѕСЃРѕР±РЅРѕСЃС‚СЊ");
+	mltAboutMP->add(L"РїСЂРёР·С‹РІР°С‚СЊ Р·Р°РєР»РёРЅР°РЅРёСЏ, РїРѕРєР° РјР°РЅР° РЅРµ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЃСЏ РґРѕ РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ");
+	mltAboutMP->add(L"Р·Р°РєР»РёРЅР°РЅРёСЋ РєРѕР»РёС‡РµСЃС‚РІР° РѕС‡РєРѕРІ.");
+	mltAboutMP->add(L"РќР°Р¶РјРёС‚Рµ Р»РµРІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ");
 	mltAboutMP->visible = false;
 	mltAboutMP->resize(__interface_companents::text_size::normal);
 
 	auto *mltAboutEnemy = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
-	mltAboutEnemy->add(L"А вот и наш первый противник!");
-	mltAboutEnemy->add(L"Под противником находится полоса отображающая его здоровье.");
-	mltAboutEnemy->add(L"Старайся уничтожить его до того как он доберется до замка.");
-	mltAboutEnemy->add(L"Наведите курсор на противника и нажмите на левую кнопку мыши");
+	mltAboutEnemy->add(L"Рђ РІРѕС‚ Рё РЅР°С€ РїРµСЂРІС‹Р№ РїСЂРѕС‚РёРІРЅРёРє!");
+	mltAboutEnemy->add(L"РџРѕРґ РїСЂРѕС‚РёРІРЅРёРєРѕРј РЅР°С…РѕРґРёС‚СЃСЏ РїРѕР»РѕСЃР° РѕС‚РѕР±СЂР°Р¶Р°СЋС‰Р°СЏ РµРіРѕ Р·РґРѕСЂРѕРІСЊРµ.");
+	mltAboutEnemy->add(L"РЎС‚Р°СЂР°Р№СЃСЏ СѓРЅРёС‡С‚РѕР¶РёС‚СЊ РµРіРѕ РґРѕ С‚РѕРіРѕ РєР°Рє РѕРЅ РґРѕР±РµСЂРµС‚СЃСЏ РґРѕ Р·Р°РјРєР°.");
+	mltAboutEnemy->add(L"РќР°РІРµРґРёС‚Рµ РєСѓСЂСЃРѕСЂ РЅР° РїСЂРѕС‚РёРІРЅРёРєР° Рё РЅР°Р¶РјРёС‚Рµ РЅР° Р»РµРІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё");
 	mltAboutEnemy->visible = false;
 	mltAboutEnemy->resize(__interface_companents::text_size::normal);
 
 	auto *mltAboutIce = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
-	mltAboutIce->add(L"                                    Хорошо!");
-	mltAboutIce->add(L"Но в настоящем бою одним только метеором не обойдешься,");
-	mltAboutIce->add(L"нажмите на правую кнопку мыши в любом месте на карте.");
+	mltAboutIce->add(L"                                    РҐРѕСЂРѕС€Рѕ!");
+	mltAboutIce->add(L"РќРѕ РІ РЅР°СЃС‚РѕСЏС‰РµРј Р±РѕСЋ РѕРґРЅРёРј С‚РѕР»СЊРєРѕ РјРµС‚РµРѕСЂРѕРј РЅРµ РѕР±РѕР№РґРµС€СЊСЃСЏ,");
+	mltAboutIce->add(L"РЅР°Р¶РјРёС‚Рµ РЅР° РїСЂР°РІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё РІ Р»СЋР±РѕРј РјРµСЃС‚Рµ РЅР° РєР°СЂС‚Рµ.");
 	mltAboutIce->visible = false;
 	mltAboutIce->resize(__interface_companents::text_size::normal);
 
 	auto *mltAboutIce2 = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
-	mltAboutIce2->add(L"Это ледяной кристалл");
-	mltAboutIce2->add(L"Он будет принимать удар противников, подошедших слишком близко,");
-	mltAboutIce2->add(L"на себя, при этом нанося небольшое количество урона в ответ.");
-	mltAboutIce2->add(L"Кристалл стоит очень много очков маны, и, к тому же, вы можете");
-	mltAboutIce2->add(L"поставить только один кристалл за раз, если предыдущий не был");
-	mltAboutIce2->add(L"разрущен, то при создании нового, старый разрушется.");
-	mltAboutIce2->add(L"Попробуйте поставить ещё один кристалл.");
+	mltAboutIce2->add(L"Р­С‚Рѕ Р»РµРґСЏРЅРѕР№ РєСЂРёСЃС‚Р°Р»Р»");
+	mltAboutIce2->add(L"РћРЅ Р±СѓРґРµС‚ РїСЂРёРЅРёРјР°С‚СЊ СѓРґР°СЂ РїСЂРѕС‚РёРІРЅРёРєРѕРІ, РїРѕРґРѕС€РµРґС€РёС… СЃР»РёС€РєРѕРј Р±Р»РёР·РєРѕ,");
+	mltAboutIce2->add(L"РЅР° СЃРµР±СЏ, РїСЂРё СЌС‚РѕРј РЅР°РЅРѕСЃСЏ РЅРµР±РѕР»СЊС€РѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СѓСЂРѕРЅР° РІ РѕС‚РІРµС‚.");
+	mltAboutIce2->add(L"РљСЂРёСЃС‚Р°Р»Р» СЃС‚РѕРёС‚ РѕС‡РµРЅСЊ РјРЅРѕРіРѕ РѕС‡РєРѕРІ РјР°РЅС‹, Рё, Рє С‚РѕРјСѓ Р¶Рµ, РІС‹ РјРѕР¶РµС‚Рµ");
+	mltAboutIce2->add(L"РїРѕСЃС‚Р°РІРёС‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ РєСЂРёСЃС‚Р°Р»Р» Р·Р° СЂР°Р·, РµСЃР»Рё РїСЂРµРґС‹РґСѓС‰РёР№ РЅРµ Р±С‹Р»");
+	mltAboutIce2->add(L"СЂР°Р·СЂСѓС‰РµРЅ, С‚Рѕ РїСЂРё СЃРѕР·РґР°РЅРёРё РЅРѕРІРѕРіРѕ, СЃС‚Р°СЂС‹Р№ СЂР°Р·СЂСѓС€РµС‚СЃСЏ.");
+	mltAboutIce2->add(L"РџРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕСЃС‚Р°РІРёС‚СЊ РµС‰С‘ РѕРґРёРЅ РєСЂРёСЃС‚Р°Р»Р».");
 	mltAboutIce2->visible = false;
 	mltAboutIce2->resize(__interface_companents::text_size::normal);
 
 	auto *mltAboutIce3 = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
-	mltAboutIce3->add(L"Как и говорилось первый кристалл разрушился");
-	mltAboutIce3->add(L"и больше не способен ни на что.");
-	mltAboutIce3->add(L"Старайтесь ставить кристалл напротив сильных противников");
-	mltAboutIce3->add(L"и если есть такая возможность, то дальше от замка.");
-	mltAboutIce3->add(L"Нажмите левую кнопку мыши чтобы продолжить");
+	mltAboutIce3->add(L"РљР°Рє Рё РіРѕРІРѕСЂРёР»РѕСЃСЊ РїРµСЂРІС‹Р№ РєСЂРёСЃС‚Р°Р»Р» СЂР°Р·СЂСѓС€РёР»СЃСЏ");
+	mltAboutIce3->add(L"Рё Р±РѕР»СЊС€Рµ РЅРµ СЃРїРѕСЃРѕР±РµРЅ РЅРё РЅР° С‡С‚Рѕ.");
+	mltAboutIce3->add(L"РЎС‚Р°СЂР°Р№С‚РµСЃСЊ СЃС‚Р°РІРёС‚СЊ РєСЂРёСЃС‚Р°Р»Р» РЅР°РїСЂРѕС‚РёРІ СЃРёР»СЊРЅС‹С… РїСЂРѕС‚РёРІРЅРёРєРѕРІ");
+	mltAboutIce3->add(L"Рё РµСЃР»Рё РµСЃС‚СЊ С‚Р°РєР°СЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ, С‚Рѕ РґР°Р»СЊС€Рµ РѕС‚ Р·Р°РјРєР°.");
+	mltAboutIce3->add(L"РќР°Р¶РјРёС‚Рµ Р»РµРІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ");
 	mltAboutIce3->visible = false;
 	mltAboutIce3->resize(__interface_companents::text_size::normal);
 
 	auto *mltEnd = new __interface_companents::multiline_text(700, 340, Color::Black, Color::Yellow);
-	mltEnd->add(L"                                   Отлично!");
-	mltEnd->add(L"Вы прошли обучение и теперь можете перейти в меню!");
-	mltEnd->add(L"Нажмите правую кнопку мыши чтобы продолжить");
+	mltEnd->add(L"                                   РћС‚Р»РёС‡РЅРѕ!");
+	mltEnd->add(L"Р’С‹ РїСЂРѕС€Р»Рё РѕР±СѓС‡РµРЅРёРµ Рё С‚РµРїРµСЂСЊ РјРѕР¶РµС‚Рµ РїРµСЂРµР№С‚Рё РІ РјРµРЅСЋ!");
+	mltEnd->add(L"РќР°Р¶РјРёС‚Рµ РїСЂР°РІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ");
 	mltEnd->visible = false;
 	mltEnd->resize(__interface_companents::text_size::normal);
 
@@ -1700,7 +1700,7 @@ int Game::lvlTraining() {
 
 	barhp = 100;
 	barmp = 100;
-	HP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, 5, barhp, 0, L"HP:", Color::White, Color::Red, Color::Black); //Полоса здоровья
+	HP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, 5, barhp, 0, L"HP:", Color::White, Color::Red, Color::Black); //РџРѕР»РѕСЃР° Р·РґРѕСЂРѕРІСЊСЏ
 	MP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, HP->getSize().left + HP->getSize().width + 5, barmp, 0, L"MP:", Color::White, Color::Blue, Color::Black);
 	CameraMain = new Camera(CENTER_SCREEN_X, CENTER_SCREEN_Y, config->screenWidth, config->screenHeight);
 
@@ -1712,8 +1712,8 @@ int Game::lvlTraining() {
 	//float barhp = 100;
 	//flbarmp = 100;
 
-	__interface_companents::message *message_end = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Замок разрушен, вы проиграли", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
-	__interface_companents::message *message_settings = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Изменения вступят в силу после перезапуска игры", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
+	__interface_companents::message *message_end = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"Р—Р°РјРѕРє СЂР°Р·СЂСѓС€РµРЅ, РІС‹ РїСЂРѕРёРіСЂР°Р»Рё", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
+	__interface_companents::message *message_settings = new __interface_companents::message(config->screenWidth / 2, config->screenHeight / 2, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), L"РР·РјРµРЅРµРЅРёСЏ РІСЃС‚СѓРїСЏС‚ РІ СЃРёР»Сѓ РїРѕСЃР»Рµ РїРµСЂРµР·Р°РїСѓСЃРєР° РёРіСЂС‹", Color(38, 38, 38, 255), Color::Yellow, Color::Yellow);
 
 	menu_settings *st_men = new menu_settings(config, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), Color::Color(38, 38, 38, 255), Color::Yellow);
 	men = new menu_pause(CameraMain, r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), Color::Color(38, 38, 38, 255), Color::Yellow);
@@ -1723,14 +1723,14 @@ int Game::lvlTraining() {
 
 	float Second = 0;
 
-	SoundBuffer shootBuffer; //Создаём буфер для звука
-	shootBuffer.loadFromFile("Sounds/expls.ogg"); //Загружаем в него звук
-	Sound expl_sound(shootBuffer); //Создаем звук и загружаем в него звук из буфера
+	SoundBuffer shootBuffer; //РЎРѕР·РґР°С‘Рј Р±СѓС„РµСЂ РґР»СЏ Р·РІСѓРєР°
+	shootBuffer.loadFromFile("Sounds/expls.ogg"); //Р—Р°РіСЂСѓР¶Р°РµРј РІ РЅРµРіРѕ Р·РІСѓРє
+	Sound expl_sound(shootBuffer); //РЎРѕР·РґР°РµРј Р·РІСѓРє Рё Р·Р°РіСЂСѓР¶Р°РµРј РІ РЅРµРіРѕ Р·РІСѓРє РёР· Р±СѓС„РµСЂР°
 	expl_sound.setVolume(volume);
 
 	while (window->isOpen()) {
 
-		timer = clock.getElapsedTime().asMicroseconds(); //Получаем время в микросек
+		timer = clock.getElapsedTime().asMicroseconds(); //РџРѕР»СѓС‡Р°РµРј РІСЂРµРјСЏ РІ РјРёРєСЂРѕСЃРµРє
 		Second = clock.getElapsedTime().asSeconds();
 		clock.restart();
 		timer /= 1000;
@@ -1741,7 +1741,7 @@ int Game::lvlTraining() {
 			if (event.type == Event::Closed) {
 				window->close();
 			}
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Меню и его обработчики событий
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------РњРµРЅСЋ Рё РµРіРѕ РѕР±СЂР°Р±РѕС‚С‡РёРєРё СЃРѕР±С‹С‚РёР№
 
 			if (!mlt->visible && !mltAboutHP->visible && !mltAboutMP->visible && !mltAboutEnemy->visible && !mltAboutIce->visible && !mltAboutIce2->visible && !mltAboutIce3->visible && mltEnd->visible) {
 				if (event.type == event.MouseButtonReleased && event.mouseButton.button == Mouse::Left && !men->active) {
@@ -2016,14 +2016,14 @@ int Game::lvlTraining() {
 		}
 
 		if (!message_end->active && !mltAboutEnemy->visible) {
-			if (Keyboard::isKeyPressed(Keyboard::Escape) && !mlt->visible && !mltAboutHP->visible && !mltAboutMP->visible) { //Выход
+			if (Keyboard::isKeyPressed(Keyboard::Escape) && !mlt->visible && !mltAboutHP->visible && !mltAboutMP->visible) { //Р’С‹С…РѕРґ
 				men->active = true;
 			}
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Регистрация попаданий
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Р РµРіРёСЃС‚СЂР°С†РёСЏ РїРѕРїР°РґР°РЅРёР№
 			if (!men->active) {
 						
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Логика поведения врагов
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Р›РѕРіРёРєР° РїРѕРІРµРґРµРЅРёСЏ РІСЂР°РіРѕРІ
 				for (list<Spearman*>::iterator it_sp = Spman->begin(); it_sp != Spman->end();) {
 					if ((*it_sp)->is_dead) {
 						delete* it_sp;
@@ -2062,13 +2062,13 @@ int Game::lvlTraining() {
 				MP->changeBar(barmp);
 				MP->freeze(CameraMain, 5, 40);
 
-				if (EnemyActive) { //----------------------------------------------Скрипт с врагом
+				if (EnemyActive) { //----------------------------------------------РЎРєСЂРёРїС‚ СЃ РІСЂР°РіРѕРј
 					Spman->push_back(new Spearman(*(pointer_cast(((char*)(ptr_global_memory) + block_memory_sprite), Sprite) + 3), config->screenWidth + 20, config->screenHeight / 2, 45));
 					EnemyActive = false;
 				}	
 			}
 		}
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Отрисовка
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------РћС‚СЂРёСЃРѕРІРєР°
 		window->clear();
 		MainWrd->render(*window);
 				

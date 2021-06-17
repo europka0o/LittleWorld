@@ -1,6 +1,6 @@
-#include "InterfBase.hpp"
+п»ї#include "InterfBase.hpp"
 
-//--------------------------------База-Интерфейса-BaseInterface-Начало------------------------------------------
+//--------------------------------Р‘Р°Р·Р°-РРЅС‚РµСЂС„РµР№СЃР°-BaseInterface-РќР°С‡Р°Р»Рѕ------------------------------------------
 __interface_companents::BaseInerface::BaseInerface() :
 	pos(axes_i(0, 0)),
 	visible(true)
@@ -45,4 +45,4 @@ const FloatRect& __interface_companents::BaseInerface::getSize() const noexcept 
 void __interface_companents::BaseInerface::render(RenderWindow& wd) {
 	return;
 }
-//--------------------------------База-Интерфейса-BaseInterface-Конец------------------------------------------
+//--------------------------------Р‘Р°Р·Р°-РРЅС‚РµСЂС„РµР№СЃР°-BaseInterface-РљРѕРЅРµС†------------------------------------------

@@ -1,6 +1,6 @@
-#include "Base.hpp"
+п»ї#include "Base.hpp"
 
-//----------------------------------Настройки-Settings-Начало------------------------------
+//----------------------------------РќР°СЃС‚СЂРѕР№РєРё-Settings-РќР°С‡Р°Р»Рѕ------------------------------
 int settings::createSettings(unsigned int ScreenW, unsigned int ScreenH, int AnisF, bool VertS, int TxtS, bool FullS, bool Sound, int SoundV) {
 	fullScreen = FullS;
 	verticalSync = VertS;
@@ -29,12 +29,12 @@ int settings::saveSettings() {
 }
 
 int settings::loadSettings() {
-	lua_State* L = luaL_newstate(); //Создаем объект lua, из которого будем получать данные
+	lua_State* L = luaL_newstate(); //РЎРѕР·РґР°РµРј РѕР±СЉРµРєС‚ lua, РёР· РєРѕС‚РѕСЂРѕРіРѕ Р±СѓРґРµРј РїРѕР»СѓС‡Р°С‚СЊ РґР°РЅРЅС‹Рµ
 
-	if (luaL_loadfile(L, "settings.lua") || lua_pcall(L, 0, 0, 0)) { //Если файл не найден
+	if (luaL_loadfile(L, "settings.lua") || lua_pcall(L, 0, 0, 0)) { //Р•СЃР»Рё С„Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ
 		return 0;
 	} else {
-		luaL_openlibs(L); //Загружаем библиотеку для работы с lua файлами
+		luaL_openlibs(L); //Р—Р°РіСЂСѓР¶Р°РµРј Р±РёР±Р»РёРѕС‚РµРєСѓ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ lua С„Р°Р№Р»Р°РјРё
 
 		fullScreen = luabridge::getGlobal(L, "fullScreen").cast<bool>();
 
@@ -54,4 +54,4 @@ int settings::loadSettings() {
 	}
 	return 0;
 }
-//----------------------------------Настройки-Settings-Конец-------------------------------
+//----------------------------------РќР°СЃС‚СЂРѕР№РєРё-Settings-РљРѕРЅРµС†-------------------------------

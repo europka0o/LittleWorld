@@ -1,4 +1,4 @@
-#include "Base.hpp"
+п»ї#include "Base.hpp"
 #include "Trigger.hpp"
 #pragma once
 
@@ -16,29 +16,29 @@ class ObjectStatic {
 		IntRect sprite_rect;
 		bool visible;
 		/// <summary>
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		/// </summary>
-		/// <param name="i">Указатель на текстуру</param>
-		/// <param name="X">Координаты по оси X</param>
-		/// <param name="Y">Координаты по оси Y</param>
+		/// <param name="i">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСЃС‚СѓСЂСѓ</param>
+		/// <param name="X">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё X</param>
+		/// <param name="Y">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё Y</param>
 		/// <returns></returns>
 		ObjectStatic(const Sprite& ptr_sprite, float X, float Y);
 		~ObjectStatic();
 		/// <summary>
-		/// Возвращает позицию
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РїРѕР·РёС†РёСЋ
 		/// </summary>
-		/// <returns>Структура axes_i</returns>
+		/// <returns>РЎС‚СЂСѓРєС‚СѓСЂР° axes_i</returns>
 		virtual const axes_i& getPosition() const noexcept;
 		/// <summary>
-		/// Устанавливает позицию хитбокса по осям X и Y
+		/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ С…РёС‚Р±РѕРєСЃР° РїРѕ РѕСЃСЏРј X Рё Y
 		/// </summary>
-		/// <param name="x">Ось X</param>
-		/// <param name="y">Ось Y</param>
+		/// <param name="x">РћСЃСЊ X</param>
+		/// <param name="y">РћСЃСЊ Y</param>
 		virtual void __fastcall setPosition(int x, int y);
 		/// <summary>
-		/// Устанавливает позицию хитбокса по осям X и Y
+		/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ С…РёС‚Р±РѕРєСЃР° РїРѕ РѕСЃСЏРј X Рё Y
 		/// </summary>
-		/// <param name="xy">Структура axes_i с координатами по осям X и Y</param>
+		/// <param name="xy">РЎС‚СЂСѓРєС‚СѓСЂР° axes_i СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё РїРѕ РѕСЃСЏРј X Рё Y</param>
 		virtual void setPosition(const axes_i& xy);
 		virtual void render(RenderWindow& wd, Sprite* ptr_sprite) noexcept;
 };
@@ -49,18 +49,18 @@ class ObjectAnimated : public ObjectStatic {
 	public:
 		bool end;
 		/// <summary>
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		/// </summary>
-		/// <param name="i">Указатель на текстуру</param>
-		/// <param name="X">Координаты по оси X</param>
-		/// <param name="Y">Координаты по оси Y</param>
+		/// <param name="i">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСЃС‚СѓСЂСѓ</param>
+		/// <param name="X">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё X</param>
+		/// <param name="Y">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё Y</param>
 		/// <returns></returns>
 		ObjectAnimated(const Sprite& ptr_sprite, float X, float Y);
 		~ObjectAnimated();
 		/// <summary>
-		/// Обновление объекта
+		/// РћР±РЅРѕРІР»РµРЅРёРµ РѕР±СЉРµРєС‚Р°
 		/// </summary>
-		/// <param name="time">Время, чем больше значение переменной, тем быстрее происходит обновление</param>
+		/// <param name="time">Р’СЂРµРјСЏ, С‡РµРј Р±РѕР»СЊС€Рµ Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№, С‚РµРј Р±С‹СЃС‚СЂРµРµ РїСЂРѕРёСЃС…РѕРґРёС‚ РѕР±РЅРѕРІР»РµРЅРёРµ</param>
 		virtual void __fastcall update(float time);
 };
 

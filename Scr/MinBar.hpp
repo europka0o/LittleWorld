@@ -1,4 +1,4 @@
-#include "InterfBase.hpp"
+п»ї#include "InterfBase.hpp"
 #pragma once
 
 //#ifndef _MINBAR_H_
@@ -9,38 +9,38 @@
 namespace __interface_companents {
 	class min_bar : public BaseInerface {
 		private:
-			int max_br, min_br, curr_br; //Максимальное значение полосы, минимальное значение полосы, текущее значение полосы 
-			RectangleShape* main; //Прямоугольник под объектом
-			RectangleShape* bevel; //Полоса
+			int max_br, min_br, curr_br; //РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹, РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹, С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹ 
+			RectangleShape* main; //РџСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РїРѕРґ РѕР±СЉРµРєС‚РѕРј
+			RectangleShape* bevel; //РџРѕР»РѕСЃР°
 		public:
 			/// <summary>
-			/// Конструктор
+			/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 			/// </summary>
-			/// <param name="x">Позиция по оси X</param>
-			/// <param name="y">Позиция по оси Y</param>
-			/// <param name="br_ma">Максимальное значение полосы</param>
-			/// <param name="br_mi">Минимальное значение полосы</param>
-			/// <param name="mcol">Цвет полосы</param>
-			/// <param name="bcol">Цвет прямоугольника под полосой</param>
+			/// <param name="x">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё X</param>
+			/// <param name="y">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё Y</param>
+			/// <param name="br_ma">РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹</param>
+			/// <param name="br_mi">РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹</param>
+			/// <param name="mcol">Р¦РІРµС‚ РїРѕР»РѕСЃС‹</param>
+			/// <param name="bcol">Р¦РІРµС‚ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РїРѕРґ РїРѕР»РѕСЃРѕР№</param>
 			/// <returns></returns>
 			min_bar(int x, int y, int br_ma, int br_mi, const Color& mcol, const Color& bcol);
 			~min_bar();
 			/// <summary>
-			/// Устанавливает позицию объекта по осям X, Y
+			/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р° РїРѕ РѕСЃСЏРј X, Y
 			/// </summary>
-			/// <param name="x">Позиция по оси X</param>
-			/// <param name="y">Позиция по оси Y</param>
+			/// <param name="x">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё X</param>
+			/// <param name="y">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё Y</param>
 			/// <returns></returns>
 			void __fastcall setPosition(int x, int y) noexcept override;
 			/// <summary>
-			/// Устанавливает позицию объекта по осям X, Y
+			/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р° РїРѕ РѕСЃСЏРј X, Y
 			/// </summary>
-			/// <param name="xy">Структура axes_i с координатами по осям X и Y</param>
+			/// <param name="xy">РЎС‚СЂСѓРєС‚СѓСЂР° axes_i СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё РїРѕ РѕСЃСЏРј X Рё Y</param>
 			void setPosition(const axes_i& xy) noexcept override;
 			/// <summary>
-			/// Изменяет состояние полосы
+			/// РР·РјРµРЅСЏРµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ РїРѕР»РѕСЃС‹
 			/// </summary>
-			/// <param name="arg">Новое значение полосы</param>
+			/// <param name="arg">РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РѕСЃС‹</param>
 			/// <returns></returns>
 			void changeBar(int arg) noexcept;
 			void render(RenderWindow& wd) noexcept override;

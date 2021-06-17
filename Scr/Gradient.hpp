@@ -1,4 +1,4 @@
-#include "InterfBase.hpp"
+п»ї#include "InterfBase.hpp"
 #pragma once
 
 //#ifndef _GRADIENT_H_
@@ -12,22 +12,22 @@ namespace __interface_companents {
 			std::vector<sf::Color> colors;
 			sf::VertexArray* rect;
 		public:
-			/// <param name="rt">Размер и положение хитбокса</param>
-			/// <param name="gd">Направление градиента</param>
-			/// <param name="first">Начальный цвет градиента</param>
-			/// <param name="second">Конечный цвет градиента</param>
+			/// <param name="rt">Р Р°Р·РјРµСЂ Рё РїРѕР»РѕР¶РµРЅРёРµ С…РёС‚Р±РѕРєСЃР°</param>
+			/// <param name="gd">РќР°РїСЂР°РІР»РµРЅРёРµ РіСЂР°РґРёРµРЅС‚Р°</param>
+			/// <param name="first">РќР°С‡Р°Р»СЊРЅС‹Р№ С†РІРµС‚ РіСЂР°РґРёРµРЅС‚Р°</param>
+			/// <param name="second">РљРѕРЅРµС‡РЅС‹Р№ С†РІРµС‚ РіСЂР°РґРёРµРЅС‚Р°</param>
 			gradient(const FloatRect& rt, int gd, const Color& first, const Color& second);
 			~gradient();
 			/// <summary>
-			/// Устанавливает позицию объекта по осям X и Y
+			/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р° РїРѕ РѕСЃСЏРј X Рё Y
 			/// </summary>
-			/// <param name="xy">Структура axes_i с координатами по осям X и Y</param>
+			/// <param name="xy">РЎС‚СЂСѓРєС‚СѓСЂР° axes_i СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё РїРѕ РѕСЃСЏРј X Рё Y</param>
 			void setPosition(const axes_i& xy) override;
 			/// <summary>
-			/// Устанавливает позицию объекта по осям X и Y
+			/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ РѕР±СЉРµРєС‚Р° РїРѕ РѕСЃСЏРј X Рё Y
 			/// </summary>
-			/// <param name="x">Координаты по оси X</param>
-			/// <param name="x">Координаты по оси Y</param>
+			/// <param name="x">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё X</param>
+			/// <param name="x">РљРѕРѕСЂРґРёРЅР°С‚С‹ РїРѕ РѕСЃРё Y</param>
 			void __fastcall setPosition(int x, int y) override;
 			void render(RenderWindow& wd) noexcept override;
 	};

@@ -1,6 +1,6 @@
-#include "Button.hpp"
+п»ї#include "Button.hpp"
 
-//-----------------------------------Кнопка-button-Начало-------------------------------------
+//-----------------------------------РљРЅРѕРїРєР°-button-РќР°С‡Р°Р»Рѕ-------------------------------------
 __interface_companents::button::button(int x, int y, const Font& font, const wchar_t* text_box, const Color& maincl, const Color& textcl, const Color& activecl) :
 	BaseInerface(x, y, FloatRect(Vector2f(0, 0), Vector2f(0, 0))),
 	active(false)
@@ -90,4 +90,4 @@ bool __interface_companents::button::isAction(const axes_i& xy) {
 	fl_rect.contains(xy.x, xy.y) ? active = true : active = false;
 	return active;
 }
-//-----------------------------------Кнопка-button-Конец--------------------------------------
+//-----------------------------------РљРЅРѕРїРєР°-button-РљРѕРЅРµС†--------------------------------------

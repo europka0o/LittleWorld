@@ -1,4 +1,4 @@
-#include "Base.hpp"
+п»ї#include "Base.hpp"
 #pragma once
 
 class background_color {
@@ -8,18 +8,18 @@ class background_color {
 	public:
 		bool visible;
 		/// <summary>
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		/// </summary>
-		/// <param name="x">Позиция по оси X</param>
-		/// <param name="y">Позиция по оси Y</param>
-		/// <param name="cl">Цвет</param>
-		/// <param name="cf">Указатель на структуру настроек</param>
+		/// <param name="x">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё X</param>
+		/// <param name="y">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё Y</param>
+		/// <param name="cl">Р¦РІРµС‚</param>
+		/// <param name="cf">РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ РЅР°СЃС‚СЂРѕРµРє</param>
 		background_color(int x, int y, const Color& cl, configuration* cf);
 		~background_color();
 		/// <summary>
-		/// Изменяет цвет
+		/// РР·РјРµРЅСЏРµС‚ С†РІРµС‚
 		/// </summary>
-		/// <param name="cl">Новый Цвет</param>
+		/// <param name="cl">РќРѕРІС‹Р№ Р¦РІРµС‚</param>
 		void setColor(Color cl);
 		void render(RenderWindow& wd) noexcept;
 };

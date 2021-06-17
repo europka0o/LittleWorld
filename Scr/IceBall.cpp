@@ -1,6 +1,6 @@
-#include "IceBall.hpp"
+п»ї#include "IceBall.hpp"
 
-//---------------------------------------Ледяной-шар-IceBall-Начало------------------------------------------
+//---------------------------------------Р›РµРґСЏРЅРѕР№-С€Р°СЂ-IceBall-РќР°С‡Р°Р»Рѕ------------------------------------------
 IceBall::IceBall(const Sprite &ptr_sprite, float X_POS, float Y_POS, int hp, unsigned int descendant) :
 	BaseCharacter(ptr_sprite, X_POS, Y_POS, hp, descendant)
 	{
@@ -74,4 +74,4 @@ void IceBall::render(RenderWindow &wd, Sprite* ptr_sprite) noexcept {
 		HP->render(wd);
 	}
 }
-//--------------------------------------Ледяной-шар-IceBall-Конец------------------------------------------
+//--------------------------------------Р›РµРґСЏРЅРѕР№-С€Р°СЂ-IceBall-РљРѕРЅРµС†------------------------------------------

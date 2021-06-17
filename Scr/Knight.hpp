@@ -1,4 +1,4 @@
-#include "BaseCharacter.hpp"
+﻿#include "BaseCharacter.hpp"
 #include "MinBar.hpp"
 #pragma once
 

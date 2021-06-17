@@ -1,4 +1,4 @@
-#include "InterfBase.hpp"
+п»ї#include "InterfBase.hpp"
 #pragma once
 
 //#ifndef _MULTILINETEXT_H_
@@ -9,37 +9,37 @@
 namespace __interface_companents {
 	class multiline_text {
 		private:
-			int SIZE_MSTX, max_length; //Размерность массива(кол-во строк в нем), максимальная длина текста в пикселях
-			axes_f pos; //Структура axes_f с координатами по осям X и Y
-			RectangleShape* bevel; //Прямоугольник под текстом  
+			int SIZE_MSTX, max_length; //Р Р°Р·РјРµСЂРЅРѕСЃС‚СЊ РјР°СЃСЃРёРІР°(РєРѕР»-РІРѕ СЃС‚СЂРѕРє РІ РЅРµРј), РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР»РёРЅР° С‚РµРєСЃС‚Р° РІ РїРёРєСЃРµР»СЏС…
+			axes_f pos; //РЎС‚СЂСѓРєС‚СѓСЂР° axes_f СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё РїРѕ РѕСЃСЏРј X Рё Y
+			RectangleShape* bevel; //РџСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РїРѕРґ С‚РµРєСЃС‚РѕРј  
 			Font* font_main;
 		public:
 			using dyn_vector_text = std::vector<Text*>;
 			dyn_vector_text mass_string;
-			bool visible; //Видимость объекта
-			bool visible_bevel; //Видимость прямоугольника под текстом
+			bool visible; //Р’РёРґРёРјРѕСЃС‚СЊ РѕР±СЉРµРєС‚Р°
+			bool visible_bevel; //Р’РёРґРёРјРѕСЃС‚СЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РїРѕРґ С‚РµРєСЃС‚РѕРј
 			Color* bevel_cl;
 			Color* label_cl;
 			/// <summary>
-			/// Конструктор
+			/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 			/// </summary>
-			/// <param name="x">Позиция по оси X</param>
-			/// <param name="y">Позиция по оси Y</param>
-			/// <param name="lbcol">Цвет текста</param>
-			/// <param name="bvcol">Цвет прямоугольника под текстом</param>
+			/// <param name="x">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё X</param>
+			/// <param name="y">РџРѕР·РёС†РёСЏ РїРѕ РѕСЃРё Y</param>
+			/// <param name="lbcol">Р¦РІРµС‚ С‚РµРєСЃС‚Р°</param>
+			/// <param name="bvcol">Р¦РІРµС‚ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РїРѕРґ С‚РµРєСЃС‚РѕРј</param>
 			/// <returns></returns>
 			multiline_text(float x = 0, float y = 0, const Color& lbcol = Color::White, const Color& bvcol = Color::Black);
 			~multiline_text() noexcept;
 			/// <summary>
-			/// Изменяет размер текста
+			/// РР·РјРµРЅСЏРµС‚ СЂР°Р·РјРµСЂ С‚РµРєСЃС‚Р°
 			/// </summary>
-			/// <param name="size">Размер текста в пикселях</param>
+			/// <param name="size">Р Р°Р·РјРµСЂ С‚РµРєСЃС‚Р° РІ РїРёРєСЃРµР»СЏС…</param>
 			/// <returns></returns>
 			void resize(int size = normal) noexcept;
 			/// <summary>
-			/// Добавление новой линии текста
+			/// Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ Р»РёРЅРёРё С‚РµРєСЃС‚Р°
 			/// </summary>
-			/// <param name="txt">Текст на новой линии</param>
+			/// <param name="txt">РўРµРєСЃС‚ РЅР° РЅРѕРІРѕР№ Р»РёРЅРёРё</param>
 			/// <returns></returns>
 			void add(const std::wstring& txt) noexcept;
 			void render(RenderWindow& wd) noexcept;

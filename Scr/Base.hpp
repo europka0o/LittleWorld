@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <list>
 #include <vector>
 #include <fstream>
@@ -19,11 +19,11 @@ enum class settings_save_code {
 };
 
 /// <summary>
-/// Преобразует целочисленное число к строке
+/// РџСЂРµРѕР±СЂР°Р·СѓРµС‚ С†РµР»РѕС‡РёСЃР»РµРЅРЅРѕРµ С‡РёСЃР»Рѕ Рє СЃС‚СЂРѕРєРµ
 /// </summary>
-/// <typeparam name="arg">Выходная строка</typeparam>
-/// <param name="input">Целочисленное число</param>
-/// <returns>Строка</returns>
+/// <typeparam name="arg">Р’С‹С…РѕРґРЅР°СЏ СЃС‚СЂРѕРєР°</typeparam>
+/// <param name="input">Р¦РµР»РѕС‡РёСЃР»РµРЅРЅРѕРµ С‡РёСЃР»Рѕ</param>
+/// <returns>РЎС‚СЂРѕРєР°</returns>
 template<typename arg>
 arg IntToStr(int input) {
 	std::ostringstream output;

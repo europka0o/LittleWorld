@@ -1,6 +1,6 @@
-#include "DestroerCastle.hpp"
+п»ї#include "DestroerCastle.hpp"
 
-//-----------------------------------Разрушитель-замков-DestroerCastle-Начало-----------------------------------------
+//-----------------------------------Р Р°Р·СЂСѓС€РёС‚РµР»СЊ-Р·Р°РјРєРѕРІ-DestroerCastle-РќР°С‡Р°Р»Рѕ-----------------------------------------
 DestroerCastle::DestroerCastle(const Sprite& ptr_sprite, float X_POS, float Y_POS, int hp, unsigned int descendant) :
 	BaseCharacter(ptr_sprite, X_POS, Y_POS, hp, descendant)
 {
@@ -45,7 +45,7 @@ void __fastcall DestroerCastle::move(float time, direcrion4 direct) noexcept {
 		sprite_rect = IntRect(600 * int(frame), 700, 600, 350);
 	}
 	else {
-		switch (direction) { //Направление движения
+		switch (direction) { //РќР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ
 			case direcrion4::right:
 				frame += 0.023 * time;
 				if (frame > 4) {
@@ -116,4 +116,4 @@ void DestroerCastle::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
 		HP->render(wd);
 	}
 }
-//-----------------------------------Разрушитель-замков-DestroerCastle-Конец------------------------------------------
+//-----------------------------------Р Р°Р·СЂСѓС€РёС‚РµР»СЊ-Р·Р°РјРєРѕРІ-DestroerCastle-РљРѕРЅРµС†------------------------------------------

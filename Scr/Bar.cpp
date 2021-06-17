@@ -1,6 +1,6 @@
-#include "Bar.hpp"
+п»ї#include "Bar.hpp"
 
-//-----------------------------------Полоса-bar-Начало-------------------------------------
+//-----------------------------------РџРѕР»РѕСЃР°-bar-РќР°С‡Р°Р»Рѕ-------------------------------------
 __interface_companents::bar::bar(const Font& font, int x, int y, int br_ma, int br_mi, const wchar_t* name, const Color& mcol, const Color& bcol, const Color& tcol) :
 	BaseInerface(x, y, FloatRect(Vector2f(0, 0), Vector2f(0, 0))),
 	max_bar(br_ma),
@@ -100,4 +100,4 @@ void __interface_companents::bar::resize(int size) noexcept {
 
 	fl_rect = main->getGlobalBounds();
 }
-//-----------------------------------Полоса-bar-Конец--------------------------------------
+//-----------------------------------РџРѕР»РѕСЃР°-bar-РљРѕРЅРµС†--------------------------------------

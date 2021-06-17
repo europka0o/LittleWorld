@@ -1,4 +1,4 @@
-#include "Base.hpp"
+п»ї#include "Base.hpp"
 #pragma once
 
 //#ifndef _TRIGGER_H_ 
@@ -13,37 +13,37 @@ class CollisionBox {
 	public:
 		bool active;
 		/// <summary>
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		/// </summary>
-		/// <param name="rect">Хитбокс</param>
+		/// <param name="rect">РҐРёС‚Р±РѕРєСЃ</param>
 		/// <returns></returns>
 		CollisionBox(const IntRect& rect);
 		~CollisionBox();
 		/// <summary>
-		/// Устанавливает позицию хитбокса по осям X и Y
+		/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ С…РёС‚Р±РѕРєСЃР° РїРѕ РѕСЃСЏРј X Рё Y
 		/// </summary>
-		/// <param name="x">Ось X</param>
-		/// <param name="y">Ось Y</param>
+		/// <param name="x">РћСЃСЊ X</param>
+		/// <param name="y">РћСЃСЊ Y</param>
 		void __fastcall setPosition(int x, int y);
 		/// <summary>
-		/// Устанавливает позицию хитбокса по осям X и Y
+		/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РїРѕР·РёС†РёСЋ С…РёС‚Р±РѕРєСЃР° РїРѕ РѕСЃСЏРј X Рё Y
 		/// </summary>
-		/// <param name="xy">Структура axes_i с координатами по осям X и Y</param>
+		/// <param name="xy">РЎС‚СЂСѓРєС‚СѓСЂР° axes_i СЃ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё РїРѕ РѕСЃСЏРј X Рё Y</param>
 		void setPosition(const axes_i& xy);
 		/// <summary>
-		/// Возвращает позицию хитбокса по осям X и Y
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РїРѕР·РёС†РёСЋ С…РёС‚Р±РѕРєСЃР° РїРѕ РѕСЃСЏРј X Рё Y
 		/// </summary>
-		/// <returns>Структура axes_i</returns>
+		/// <returns>РЎС‚СЂСѓРєС‚СѓСЂР° axes_i</returns>
 		const axes_i& getPosition() const noexcept;
 		/// <summary>
-		/// Возвращает данные о хитбоке: ширина, высота, функции проверки пересечения
+		/// Р’РѕР·РІСЂР°С‰Р°РµС‚ РґР°РЅРЅС‹Рµ Рѕ С…РёС‚Р±РѕРєРµ: С€РёСЂРёРЅР°, РІС‹СЃРѕС‚Р°, С„СѓРЅРєС†РёРё РїСЂРѕРІРµСЂРєРё РїРµСЂРµСЃРµС‡РµРЅРёСЏ
 		/// </summary>
-		/// <returns>Структура IntRect</returns>
+		/// <returns>РЎС‚СЂСѓРєС‚СѓСЂР° IntRect</returns>
 		const IntRect& getBounds() const noexcept;
 		/// <summary>
-		/// Устанавливает новые данные о хитбоксе
+		/// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅРѕРІС‹Рµ РґР°РЅРЅС‹Рµ Рѕ С…РёС‚Р±РѕРєСЃРµ
 		/// </summary>
-		/// <param name="rect">Струткура IntRect с новыми параметрами</param>
+		/// <param name="rect">РЎС‚СЂСѓС‚РєСѓСЂР° IntRect СЃ РЅРѕРІС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё</param>
 		void setBounds(const IntRect& rect);
 };
 

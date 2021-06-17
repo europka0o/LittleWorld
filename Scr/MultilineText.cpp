@@ -1,6 +1,6 @@
-#include "MultilineText.hpp"
+п»ї#include "MultilineText.hpp"
 
-//-----------------------------------Многострочный-текст-multiline_text-Конец-------------------------------------
+//-----------------------------------РњРЅРѕРіРѕСЃС‚СЂРѕС‡РЅС‹Р№-С‚РµРєСЃС‚-multiline_text-РљРѕРЅРµС†-------------------------------------
 __interface_companents::multiline_text::multiline_text(float x, float y, const Color& lbcol, const Color& bvcol) :
 	visible(true),
 	visible_bevel(true)
@@ -101,4 +101,4 @@ void __interface_companents::multiline_text::render(RenderWindow& wd) noexcept {
 		}
 	}
 }
-//-----------------------------------Многострочный-текст-multiline_text-Конец-------------------------------------
+//-----------------------------------РњРЅРѕРіРѕСЃС‚СЂРѕС‡РЅС‹Р№-С‚РµРєСЃС‚-multiline_text-РљРѕРЅРµС†-------------------------------------

@@ -1,6 +1,6 @@
-#include "Trigger.hpp"
+п»ї#include "Trigger.hpp"
 
-//-----------------------------Коллизия-CollisionBox-Начало---------------------------------------
+//-----------------------------РљРѕР»Р»РёР·РёСЏ-CollisionBox-РќР°С‡Р°Р»Рѕ---------------------------------------
 CollisionBox::CollisionBox(const IntRect& rect) :
 	active(true)
 {
@@ -39,4 +39,4 @@ void CollisionBox::setBounds(const IntRect& rect) {
 	pos.y = rect.top;
 	rect_collis = rect;
 }
-//-----------------------------Коллизия-CollisionBox-Конец----------------------------------------
+//-----------------------------РљРѕР»Р»РёР·РёСЏ-CollisionBox-РљРѕРЅРµС†----------------------------------------

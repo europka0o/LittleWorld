@@ -1,6 +1,6 @@
-#include "ComboBox.hpp"
+п»ї#include "ComboBox.hpp"
 
-//----------------------------Комбо-бокс-combo_box-Начало---------------------------------------
+//----------------------------РљРѕРјР±Рѕ-Р±РѕРєСЃ-combo_box-РќР°С‡Р°Р»Рѕ---------------------------------------
 __interface_companents::combo_box::cell::cell(Text txt, int val) :
 	text_box(txt),
 	value(val)
@@ -148,4 +148,4 @@ void __interface_companents::combo_box::render(RenderWindow& wd) noexcept {
 		wd.draw((*it)->text_box);
 	}
 }
-//-----------------------------Комбо-бокс-combo_box-Конец---------------------------------------
+//-----------------------------РљРѕРјР±Рѕ-Р±РѕРєСЃ-combo_box-РљРѕРЅРµС†---------------------------------------

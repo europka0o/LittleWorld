@@ -1,6 +1,6 @@
-#include "TextBox.hpp"
+п»ї#include "TextBox.hpp"
 
-//-----------------------------------Текст-text_box-Начало-------------------------------------
+//-----------------------------------РўРµРєСЃС‚-text_box-РќР°С‡Р°Р»Рѕ-------------------------------------
 __interface_companents::text_box::text_box(const Font& font, int x, int y, const wchar_t* txt, const Color& lbcol, const Color& bvcol) :
 	BaseInerface(x, y, FloatRect(Vector2f(0, 0), Vector2f(0, 0))),
 	visible_bevel(true)
@@ -83,4 +83,4 @@ void __interface_companents::text_box::render(RenderWindow& wd) noexcept {
 		wd.draw(*label);
 	}
 }
-//-----------------------------------Текст-text_box-Конец-------------------------------------
+//-----------------------------------РўРµРєСЃС‚-text_box-РљРѕРЅРµС†-------------------------------------

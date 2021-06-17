@@ -1,6 +1,6 @@
-#include "MinBar.hpp"
+п»ї#include "MinBar.hpp"
 
-//-----------------------------Мини-полоса-min_bar-Начало----------------------------------------
+//-----------------------------РњРёРЅРё-РїРѕР»РѕСЃР°-min_bar-РќР°С‡Р°Р»Рѕ----------------------------------------
 __interface_companents::min_bar::min_bar(int x, int y, int br_ma, int br_mi, const Color& mcol, const Color& bcol) :
 	BaseInerface(x, y, FloatRect(Vector2f(0, 0), Vector2f(0, 0))),
 	max_br(br_ma),
@@ -57,4 +57,4 @@ void __interface_companents::min_bar::render(RenderWindow& wd) noexcept {
 		wd.draw(*bevel);
 	}
 }
-//-----------------------------Мини-полоса-min_bar-Конец-----------------------------------------
+//-----------------------------РњРёРЅРё-РїРѕР»РѕСЃР°-min_bar-РљРѕРЅРµС†-----------------------------------------

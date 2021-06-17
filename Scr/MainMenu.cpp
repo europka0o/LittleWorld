@@ -1,16 +1,16 @@
-#include "MainMenu.hpp"
+п»ї#include "MainMenu.hpp"
 
-//------------------------Главное-меню-main_menu-Начало---------------------------------------
+//------------------------Р“Р»Р°РІРЅРѕРµ-РјРµРЅСЋ-main_menu-РќР°С‡Р°Р»Рѕ---------------------------------------
 main_menu::main_menu(configuration* cf, const Font& font, const Color& maincl) {
 	main = new RectangleShape;
 	main->setSize(Vector2f(500, cf->screenHeight));
 	main->setFillColor(maincl);
 	main->setPosition(0, 0);
 
-	btStart = new __interface_companents::button(0, 0, font, L"Новая игра", Color::Black, Color::Yellow, Color::Yellow);
-	btStartTren = new __interface_companents::button(0, 0, font, L"Пройти обучение", Color::Black, Color::Yellow, Color::Yellow);
-	btOptions = new __interface_companents::button(0, 0, font, L"Настройки", Color::Black, Color::Yellow, Color::Yellow);
-	btExit = new __interface_companents::button(0, 0, font, L"Выйти", Color::Black, Color::Yellow, Color::Yellow);
+	btStart = new __interface_companents::button(0, 0, font, L"РќРѕРІР°СЏ РёРіСЂР°", Color::Black, Color::Yellow, Color::Yellow);
+	btStartTren = new __interface_companents::button(0, 0, font, L"РџСЂРѕР№С‚Рё РѕР±СѓС‡РµРЅРёРµ", Color::Black, Color::Yellow, Color::Yellow);
+	btOptions = new __interface_companents::button(0, 0, font, L"РќР°СЃС‚СЂРѕР№РєРё", Color::Black, Color::Yellow, Color::Yellow);
+	btExit = new __interface_companents::button(0, 0, font, L"Р’С‹Р№С‚Рё", Color::Black, Color::Yellow, Color::Yellow);
 
 	btStart->setPosition((main->getGlobalBounds().width / 2) - (btStart->getSize().width / 2), main->getGlobalBounds().top + 340);
 	btStartTren->setPosition((main->getGlobalBounds().width / 2) - (btStartTren->getSize().width / 2), main->getGlobalBounds().top + 440);
@@ -18,7 +18,7 @@ main_menu::main_menu(configuration* cf, const Font& font, const Color& maincl) {
 	btExit->setPosition((main->getGlobalBounds().width / 2) - (btExit->getSize().width / 2), main->getGlobalBounds().top + 640);
 
 
-	txMainMenu = new __interface_companents::text_box(font, 0, 0, L"Главное меню", Color::Yellow, Color::Black);
+	txMainMenu = new __interface_companents::text_box(font, 0, 0, L"Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ", Color::Yellow, Color::Black);
 	txMainMenu->visible_bevel = false;
 	grFirst = new __interface_companents::gradient(FloatRect(Vector2f(0, 0), Vector2f(100, 5)), __interface_companents::gradient_direction::rightOnLeft, Color::Transparent, Color::Yellow);
 	grSecond = new __interface_companents::gradient(FloatRect(Vector2f(0, 0), Vector2f(100, 5)), __interface_companents::gradient_direction::leftOnRight, Color::Transparent, Color::Yellow);
@@ -46,4 +46,4 @@ void main_menu::render(RenderWindow& wd) noexcept {
 	grFirst->render(wd);
 	grSecond->render(wd);
 }
-//------------------------Главное-меню-main_menu-Конец----------------------------------------
+//------------------------Р“Р»Р°РІРЅРѕРµ-РјРµРЅСЋ-main_menu-РљРѕРЅРµС†----------------------------------------

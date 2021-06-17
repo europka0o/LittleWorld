@@ -1,6 +1,6 @@
 #include "MenuPause.hpp"
 
-//-----------------------------------Меню-паузы-menu_pause-Начало--------------------------------------
+//-----------------------------------РњРµРЅСЋ-РїР°СѓР·С‹-menu_pause-РќР°С‡Р°Р»Рѕ--------------------------------------
 menu_pause::menu_pause(Camera* camera, const Font& font, const Color& maincl, const Color& bordercl) :
 	active(true),
 	blackout_visible(true)
@@ -25,11 +25,11 @@ menu_pause::menu_pause(Camera* camera, const Font& font, const Color& maincl, co
 	blackout->setFillColor(Color(0, 0, 0, 255 / 2));
 	blackout->setPosition(camera->getPosition().x - (camera->getScreenWidth() / 2), camera->getPosition().y - (camera->getScreenHeight() / 2));
 
-	btContinue = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, font, L"Продолжить", Color::Black, Color::Yellow, Color::Yellow);
-	btOptions = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 100, font, L"Настройки", Color::Black, Color::Yellow, Color::Yellow);
-	btExit = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 180, font, L"Выйти", Color::Black, Color::Yellow, Color::Yellow);
+	btContinue = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, font, L"РџСЂРѕРґРѕР»Р¶РёС‚СЊ", Color::Black, Color::Yellow, Color::Yellow);
+	btOptions = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 100, font, L"РќР°СЃС‚СЂРѕР№РєРё", Color::Black, Color::Yellow, Color::Yellow);
+	btExit = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 180, font, L"Р’С‹Р№С‚Рё", Color::Black, Color::Yellow, Color::Yellow);
 
-	txMenu = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 450, L"Меню", Color::Yellow, Color::Black);
+	txMenu = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 450, L"РњРµРЅСЋ", Color::Yellow, Color::Black);
 	txMenu->visible_bevel = false;
 	grFirst = new __interface_companents::gradient(FloatRect(Vector2f(100, 100), Vector2f(200, 5)), __interface_companents::gradient_direction::rightOnLeft, Color::Transparent, Color::Yellow);
 	grSecond = new __interface_companents::gradient(FloatRect(Vector2f(150, 150), Vector2f(200, 5)), __interface_companents::gradient_direction::leftOnRight, Color::Transparent, Color::Yellow);
@@ -72,4 +72,4 @@ void menu_pause::render(RenderWindow& wd, Camera* camera) noexcept {
 		grSecond->render(wd);
 	}
 }
-//-----------------------------------Меню-паузы-menu_pause-Конец---------------------------------------
+//-----------------------------------РњРµРЅСЋ-РїР°СѓР·С‹-menu_pause-РљРѕРЅРµС†---------------------------------------
