@@ -107,7 +107,11 @@ bool Knight::isCooldown(float time) {
 	}
 }
 
-void Knight::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
+void Knight::render(RenderWindow& wd, Sprite* ptr_sprite) {
+	if (ptr_sprite == nullptr) {
+		throw - 1;
+	}
+
 	if (visible) {
 		ptr_sprite->setPosition(pos.x, pos.y);
 		ptr_sprite->setTextureRect(sprite_rect);

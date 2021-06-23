@@ -19,7 +19,7 @@ class Knight : public BaseCharacter {
 		void __fastcall move(float time, direcrion4 direct = direcrion4::non) noexcept override;
 		void __fastcall attack(float time) override;
 		bool isCooldown(float time) override;
-		void render(RenderWindow& wd, Sprite* ptr_sprite) noexcept override;
+		void render(RenderWindow& wd, Sprite* ptr_sprite) override;
 };
 
 //#endif

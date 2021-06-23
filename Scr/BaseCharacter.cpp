@@ -1,4 +1,4 @@
-﻿#include "BaseCharacter.hpp"
+#include "BaseCharacter.hpp"
 
 //--------------------------------База-Характера-BaseCharacter-Начало------------------------------------------
 BaseCharacter::BaseCharacter() :
@@ -78,7 +78,11 @@ bool BaseCharacter::isCooldown(float time) {
 	return false;
 }
 
-void BaseCharacter::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
+void BaseCharacter::render(RenderWindow& wd, Sprite* ptr_sprite) {
+	if (ptr_sprite == nullptr) {
+		throw -1;
+	}
+	
 	if (visible) {
 		ptr_sprite->setPosition(pos.x, pos.y);
 		ptr_sprite->setTextureRect(sprite_rect);

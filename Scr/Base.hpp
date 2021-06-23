@@ -61,9 +61,9 @@ typedef struct settings {
 	int anisFilt;
 	int textSize;
 	int soundVolume;
-	int saveSettings();
-	int loadSettings();
-	int createSettings(unsigned int ScreenW = 1600, unsigned int ScreenH = 900, int AnisF = 8, bool VertS = false, int TxtS = 24, bool FullS = true, bool Sound = true, int SoundV = 50);
+	bool saveSettings();
+	bool loadSettings();
+	void createSettings(unsigned int ScreenW = 1600, unsigned int ScreenH = 900, int AnisF = 8, bool VertS = false, int TxtS = 24, bool FullS = true, bool Sound = true, int SoundV = 50);
 	//1280 x 720
 	//1600 x 900
 	//1600 x 1200

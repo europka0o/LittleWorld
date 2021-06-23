@@ -106,7 +106,11 @@ bool Spearman::isCooldown(float time) {
 	}
 }
 
-void Spearman::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
+void Spearman::render(RenderWindow& wd, Sprite* ptr_sprite) {
+	if (ptr_sprite == nullptr) {
+		throw - 1;
+	}
+
 	if (visible) {
 		ptr_sprite->setPosition(pos.x, pos.y);
 		ptr_sprite->setTextureRect(sprite_rect);

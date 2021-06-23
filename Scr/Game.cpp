@@ -13,6 +13,7 @@ Game::Game() {
 	config = new configuration;
 	if (!config->loadSettings()) {
 		config->createSettings(screen_width, screen_height, 8, true, 30, true, true, 50);
+		config->saveSettings();
 	}
 
 	if (config->sound) {
@@ -1566,7 +1567,13 @@ int Game::LvlRun() {
 					pointer_sprt = (pointer_cast(((char*)(ptr_global_memory)+block_memory_sprite), Sprite) + 4); break;
 				default: pointer_sprt = nullptr; break;
 			}
-			(*it_en)->render(*window, pointer_sprt);
+
+			try {
+				(*it_en)->render(*window, pointer_sprt);
+			} catch(int) {
+				std::cerr << "error null pointer\n";
+			}
+			
 			it_en++;
 		}
 				

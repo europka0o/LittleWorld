@@ -107,7 +107,11 @@ bool DestroerCastle::isCooldown(float time) {
 	}
 }
 
-void DestroerCastle::render(RenderWindow& wd, Sprite* ptr_sprite) noexcept {
+void DestroerCastle::render(RenderWindow& wd, Sprite* ptr_sprite) {
+	if (ptr_sprite == nullptr) {
+		throw - 1;
+	}
+
 	if (visible) {
 		ptr_sprite->setPosition(pos.x, pos.y);
 		ptr_sprite->setTextureRect(sprite_rect);

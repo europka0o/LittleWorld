@@ -1,7 +1,7 @@
 ﻿#include "Base.hpp"
 
 //----------------------------------Настройки-Settings-Начало------------------------------
-int settings::createSettings(unsigned int ScreenW, unsigned int ScreenH, int AnisF, bool VertS, int TxtS, bool FullS, bool Sound, int SoundV) {
+void settings::createSettings(unsigned int ScreenW, unsigned int ScreenH, int AnisF, bool VertS, int TxtS, bool FullS, bool Sound, int SoundV) {
 	fullScreen = FullS;
 	verticalSync = VertS;
 	screenHeight = ScreenH;
@@ -10,10 +10,9 @@ int settings::createSettings(unsigned int ScreenW, unsigned int ScreenH, int Ani
 	textSize = TxtS;
 	sound = Sound;
 	soundVolume = SoundV;
-	return saveSettings();
 }
 
-int settings::saveSettings() {
+bool settings::saveSettings() {
 	std::ofstream zap;
 	zap.open("settings.lua");
 	zap << "fullScreen = " << (fullScreen ? "true" : "false") << "\n";
@@ -25,14 +24,14 @@ int settings::saveSettings() {
 	zap << "sound = " << (sound ? "true" : "false") << "\n";
 	zap << "soundVolume = " << soundVolume << "\n";
 	zap.close();
-	return 0;
+	return true;
 }
 
-int settings::loadSettings() {
+bool settings::loadSettings() {
 	lua_State* L = luaL_newstate(); //Создаем объект lua, из которого будем получать данные
 
 	if (luaL_loadfile(L, "settings.lua") || lua_pcall(L, 0, 0, 0)) { //Если файл не найден
-		return 0;
+		return false;
 	} else {
 		luaL_openlibs(L); //Загружаем библиотеку для работы с lua файлами
 
@@ -52,6 +51,6 @@ int settings::loadSettings() {
 
 		soundVolume = luabridge::getGlobal(L, "soundVolume").cast<int>();
 	}
-	return 0;
+	return true;
 }
 //----------------------------------Настройки-Settings-Конец-------------------------------

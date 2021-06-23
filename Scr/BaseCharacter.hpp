@@ -42,7 +42,7 @@ class BaseCharacter {
 		virtual void __fastcall attack(float time);
 		virtual bool isCooldown(float time);
 		virtual const IntRect& getSize() const noexcept;
-		virtual void render(RenderWindow& wd, Sprite* ptr_sprite) noexcept;
+		virtual void render(RenderWindow& wd, Sprite* ptr_sprite);
 };
 
 //#endif 
