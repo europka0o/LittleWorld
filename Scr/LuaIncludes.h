@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #ifndef __LUA__ISINCLUDED__
 	#define __LUA__ISINCLUDED__

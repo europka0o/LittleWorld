@@ -16,7 +16,7 @@ namespace __interface_companents {
 			};
 			Font* font;
 			RectangleShape* main;
-			Color* text_cl, * main_cl;
+			Color text_cl, main_cl;
 			std::vector<cell*> mass_text;
 			std::vector<cell*>::iterator it;
 		public:
@@ -30,7 +30,7 @@ namespace __interface_companents {
 			void back();
 			bool __fastcall isAction(int x, int y);
 			bool isAction(const axes_i& xy);
-			std::wstring getText() const noexcept;
+			const std::wstring getText() const noexcept;
 			int getValue() const noexcept;
 			void render(RenderWindow& wd) noexcept override;
 	};

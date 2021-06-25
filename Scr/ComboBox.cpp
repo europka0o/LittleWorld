@@ -16,14 +16,12 @@ __interface_companents::combo_box::combo_box(int x, int y, const Color& maincl, 
 	font = new Font;
 	font->loadFromFile("Img/18094.ttf");
 
-	text_cl = new Color;
-	*text_cl = textcl;
+	text_cl = textcl;
+	main_cl = maincl;
 
 	main = new RectangleShape;
 	main->setSize(Vector2f(0, 0));
-	main_cl = new Color;
-	*main_cl = maincl;
-	main->setFillColor(*main_cl);
+	main->setFillColor(main_cl);
 	main->setPosition(pos.x, pos.y);
 
 	fl_rect = main->getGlobalBounds();
@@ -33,7 +31,6 @@ __interface_companents::combo_box::combo_box(int x, int y, const Color& maincl, 
 
 __interface_companents::combo_box::~combo_box() {
 	delete main;
-	delete text_cl, main_cl;
 
 	for (it = mass_text.begin(); it != mass_text.end(); it++) {
 		delete* it;
@@ -67,7 +64,7 @@ void __interface_companents::combo_box::add(const wchar_t* st, int val) {
 	mass_text.push_back(new cell(Text(st, *font, __interface_companents::text_size::small_t), val));
 	it = mass_text.end();
 	it--;
-	(*it)->text_box.setFillColor(*text_cl);
+	(*it)->text_box.setFillColor(text_cl);
 	(*it)->text_box.setPosition(pos.x, pos.y);
 	(*it)->text_box.setPosition(repoz_x(int, pos.x, (*it)->text_box.getGlobalBounds().left, 5), repoz_y(int, pos.y, (*it)->text_box.getGlobalBounds().top, 5));
 	main->setSize(Vector2f((*it)->text_box.getGlobalBounds().width + 10, (*it)->text_box.getGlobalBounds().height + 10));
@@ -108,7 +105,7 @@ void __interface_companents::combo_box::back() {
 	fl_rect = main->getGlobalBounds();
 }
 
-std::wstring __interface_companents::combo_box::getText() const noexcept {
+const std::wstring __interface_companents::combo_box::getText() const noexcept {
 	return std::wstring((*it)->text_box.getString().begin(), (*it)->text_box.getString().end());
 }
 

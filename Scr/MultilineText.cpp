@@ -12,10 +12,8 @@ __interface_companents::multiline_text::multiline_text(float x, float y, const C
 	SIZE_MSTX = 0;
 	max_length = 0;
 
-	bevel_cl = new Color;
-	*bevel_cl = bvcol;
-	label_cl = new Color;
-	*label_cl = lbcol;
+	bevel_cl = bvcol;
+	label_cl = lbcol;
 
 	bevel = new RectangleShape;
 }
@@ -40,7 +38,7 @@ void __interface_companents::multiline_text::add(const std::wstring& txt) noexce
 	mass_string.back()->setFont(*font_main);
 	mass_string.back()->setString(txt);
 	mass_string.back()->setCharacterSize(text_size::small_t);
-	mass_string.back()->setFillColor(*label_cl);
+	mass_string.back()->setFillColor(label_cl);
 
 	for (int i = 0; i < SIZE_MSTX; i++) {
 		if (i == 0) {
@@ -60,7 +58,7 @@ void __interface_companents::multiline_text::add(const std::wstring& txt) noexce
 	}
 
 	bevel->setSize(Vector2f(max_length + 10, height + (SIZE_MSTX * 5) + 5));
-	bevel->setFillColor(*bevel_cl);
+	bevel->setFillColor(bevel_cl);
 	bevel->setPosition(pos.x, pos.y);
 
 
@@ -89,7 +87,7 @@ void __interface_companents::multiline_text::resize(int size) noexcept {
 	}
 
 	bevel->setSize(Vector2f(max_length + 10, height + (SIZE_MSTX * 5) + 5));
-	bevel->setFillColor(*bevel_cl);
+	bevel->setFillColor(bevel_cl);
 	bevel->setPosition(pos.x, pos.y);
 }
 

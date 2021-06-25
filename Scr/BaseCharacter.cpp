@@ -1,4 +1,4 @@
-#include "BaseCharacter.hpp"
+﻿#include "BaseCharacter.hpp"
 
 //--------------------------------База-Характера-BaseCharacter-Начало------------------------------------------
 BaseCharacter::BaseCharacter() :

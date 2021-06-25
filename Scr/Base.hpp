@@ -21,17 +21,9 @@ enum class settings_save_code {
 /// <summary>
 /// Преобразует целочисленное число к строке
 /// </summary>
-/// <typeparam name="arg">Выходная строка</typeparam>
 /// <param name="input">Целочисленное число</param>
 /// <returns>Строка</returns>
-template<typename arg>
-arg IntToStr(int input) {
-	std::ostringstream output;
-	output << input;
-	return output.str();
-}
-
-#define intToStr(type_string, input) IntToStr<type_string>(input)
+std::string IntToStr(int input);
 
 template<typename type>
 struct axes {

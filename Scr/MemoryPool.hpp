@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define memory_block_allocation(returned_type_pointer, size_block_memory) (returned_type_pointer*)malloc(size_block_memory)
 #define memory_block_allocation_void(size_block_memory) malloc(size_block_memory)

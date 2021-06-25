@@ -18,8 +18,7 @@ namespace __interface_companents {
 			dyn_vector_text mass_string;
 			bool visible; //Видимость объекта
 			bool visible_bevel; //Видимость прямоугольника под текстом
-			Color* bevel_cl;
-			Color* label_cl;
+			Color bevel_cl, label_cl;
 			/// <summary>
 			/// Конструктор
 			/// </summary>

@@ -1,4 +1,4 @@
-#include "MenuSettings.hpp"
+﻿#include "MenuSettings.hpp"
 
 //------------------------Меню-настроек-menu_settings-Начало--------------------------------------
 menu_settings::menu_settings(configuration* cf, Camera* camera, const Font& font, const Color& maincl, const Color& bordercl) :
@@ -24,9 +24,9 @@ menu_settings::menu_settings(configuration* cf, Camera* camera, const Font& font
 	btBack = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 410, font, L"Назад", Color::Black, Color::Yellow, Color::Yellow);
 	btSave = new __interface_companents::button((main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 480, font, L"Сохранить", Color::Black, Color::Yellow, Color::Yellow);
 
-	std::string* t = new std::string(intToStr(std::string, cf->screenWidth));
+	std::string* t = new std::string(IntToStr(cf->screenWidth));
 	*t += " x ";
-	*t += intToStr(std::string, cf->screenHeight);
+	*t += IntToStr(cf->screenHeight);
 
 	txVertS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, L"Вертикальная синхронизация:", Color::Yellow, Color::Black);
 	txVertS->visible_bevel = false;
@@ -74,7 +74,7 @@ menu_settings::menu_settings(configuration* cf, Camera* camera, const Font& font
 		combScreen->back();
 	}
 
-	*t = intToStr(std::string, cf->soundVolume);
+	*t = IntToStr(cf->soundVolume);
 
 	while (std::wstring(t->begin(), t->end()) != combSoundV->getText()) {
 		combSoundV->back();
@@ -126,9 +126,9 @@ menu_settings::menu_settings(configuration* cf, const Font& font, const Color& m
 	btSave->setPosition(main->getGlobalBounds().left + (main->getGlobalBounds().width / 2) - (btSave->getSize().width / 2), main->getGlobalBounds().top + 480);
 
 
-	auto* t = new std::string(intToStr(std::string, cf->screenWidth));
+	auto* t = new std::string(IntToStr(cf->screenWidth));
 	*t += " x ";
-	*t += intToStr(std::string, cf->screenHeight);
+	*t += IntToStr(cf->screenHeight);
 
 	txVertS = new __interface_companents::text_box(font, (main->getGlobalBounds().width / 2) + 0, main->getGlobalBounds().top + 20, L"Вертикальная синхронизация:", Color::Yellow, Color::Black);
 	txVertS->visible_bevel = false;
@@ -185,7 +185,7 @@ menu_settings::menu_settings(configuration* cf, const Font& font, const Color& m
 		combScreen->back();
 	}
 
-	*t = intToStr(std::string, cf->soundVolume);
+	*t = IntToStr(cf->soundVolume);
 
 	while (std::wstring(t->begin(), t->end()) != combSoundV->getText()) {
 		combSoundV->back();
@@ -232,15 +232,15 @@ void menu_settings::backSettings(configuration* cf) {
 	cbVertS->isCheck = cf->verticalSync;
 	cbSound->isCheck = cf->sound;
 
-	std::string* t = new std::string(intToStr(std::string, cf->screenWidth));
+	std::string* t = new std::string(IntToStr(cf->screenWidth));
 	*t += " x ";
-	*t += intToStr(std::string, cf->screenHeight);
+	*t += IntToStr(cf->screenHeight);
 
 	while (std::wstring(t->begin(), t->end()) != combScreen->getText()) {
 		combScreen->back();
 	}
 
-	*t = intToStr(std::string, cf->soundVolume);
+	*t = IntToStr(cf->soundVolume);
 
 	while (std::wstring(t->begin(), t->end()) != combSoundV->getText()) {
 		combSoundV->back();

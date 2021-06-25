@@ -1,4 +1,4 @@
-#include "Message.hpp"
+﻿#include "Message.hpp"
 
 //-----------------------------Сообщение-message-Начало---------------------------------------
 __interface_companents::message::message(int x, int y, const Font& font, const wchar_t* txt, const Color& maincl, const Color& bordercl, const Color& textcl) :

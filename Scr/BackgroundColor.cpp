@@ -17,7 +17,7 @@ background_color::~background_color() {
 	delete background;
 }
 
-void background_color::setColor(Color cl) {
+void background_color::setColor(const Color& cl) {
 	background->setFillColor(cl);
 }
 

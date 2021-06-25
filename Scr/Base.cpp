@@ -1,5 +1,11 @@
 ﻿#include "Base.hpp"
 
+std::string IntToStr(int input) {
+	std::ostringstream output;
+	output << input;
+	return output.str();
+}
+
 //----------------------------------Настройки-Settings-Начало------------------------------
 void settings::createSettings(unsigned int ScreenW, unsigned int ScreenH, int AnisF, bool VertS, int TxtS, bool FullS, bool Sound, int SoundV) {
 	fullScreen = FullS;

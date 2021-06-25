@@ -1,4 +1,4 @@
-#include "MenuPause.hpp"
+﻿#include "MenuPause.hpp"
 
 //-----------------------------------Меню-паузы-menu_pause-Начало--------------------------------------
 menu_pause::menu_pause(Camera* camera, const Font& font, const Color& maincl, const Color& bordercl) :

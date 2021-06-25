@@ -20,6 +20,6 @@ class background_color {
 		/// Изменяет цвет
 		/// </summary>
 		/// <param name="cl">Новый Цвет</param>
-		void setColor(Color cl);
+		void setColor(const Color &cl);
 		void render(RenderWindow& wd) noexcept;
 };
