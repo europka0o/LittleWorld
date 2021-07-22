@@ -12,7 +12,7 @@ Spearman::Spearman(const Sprite& ptr_sprite, float X_POS, float Y_POS, int hp, u
 }
 
 Spearman::~Spearman() {
-	delete rect_collis, HP;
+	delete HP;
 }
 
 void __fastcall Spearman::setPosition(float x, float y) noexcept {
