@@ -27,6 +27,7 @@ enum lvlnum {
 	exitGame = 0
 };
 
+#pragma	pack(push, 1)
 class Game {
 	private:
 		configuration *config;
@@ -58,3 +59,4 @@ class Game {
 		void ExecuteCommand(const char* command);
 		void StartApp();
 };
+#pragma	pack(pop)

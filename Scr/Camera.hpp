@@ -5,7 +5,7 @@
 //#define _CAMERA_H_
 
 
-
+#pragma	pack(push, 1)
 class Camera {
 	private:
 		axes_i pos;
@@ -56,5 +56,6 @@ class Camera {
 		const FloatRect& getBounds() const noexcept;
 		void setView(RenderWindow& wd);
 };
+#pragma	pack(pop)
 
 //#endif

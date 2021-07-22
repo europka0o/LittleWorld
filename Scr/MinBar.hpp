@@ -7,6 +7,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class min_bar : public BaseInerface {
 		private:
 			int max_br, min_br, curr_br; //Максимальное значение полосы, минимальное значение полосы, текущее значение полосы 
@@ -45,6 +46,7 @@ namespace __interface_companents {
 			void changeBar(int arg) noexcept;
 			void render(RenderWindow& wd) noexcept override;
 	};
+#pragma	pack(pop)
 }
 
 //#endif

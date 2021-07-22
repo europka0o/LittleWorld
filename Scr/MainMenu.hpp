@@ -8,7 +8,7 @@
 //#define _MAINMENU_H_
 
 
-
+#pragma	pack(push, 1)
 class main_menu {
 	private:
 		RectangleShape* main;
@@ -20,5 +20,6 @@ class main_menu {
 		~main_menu();
 		void render(RenderWindow& wd) noexcept;
 };
+#pragma	pack(pop)
 
 //#endif

@@ -7,6 +7,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class multiline_text {
 		private:
 			int SIZE_MSTX, max_length; //Размерность массива(кол-во строк в нем), максимальная длина текста в пикселях
@@ -43,6 +44,7 @@ namespace __interface_companents {
 			void add(const std::wstring& txt) noexcept;
 			void render(RenderWindow& wd) noexcept;
 	};
+#pragma	pack(pop)
 }
 
 //#endif

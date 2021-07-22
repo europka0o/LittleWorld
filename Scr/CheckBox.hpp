@@ -7,6 +7,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class check_box : public BaseInerface {
 		private:
 			RectangleShape* main, * border, * check;
@@ -20,6 +21,7 @@ namespace __interface_companents {
 			void invers(bool operation);
 			void invers();
 	};
+#pragma	pack(pop)
 }
 
 //#endif

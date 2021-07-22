@@ -6,18 +6,19 @@
 //#define _ICEBALL_H_
 
 
-
+#pragma	pack(push, 1)
 class IceBall : public BaseCharacter {
 	private:
 		__interface_companents::min_bar* HP;
 	public:
 		IceBall(const Sprite& ptr_sprite, float X_POS, float Y_POS, int hp, unsigned int descendant = ICEBALL_CLASS);
-		virtual ~IceBall();
+		~IceBall();
 		void __fastcall setPosition(float x, float y) noexcept override;
 		void setPosition(const axes_f& xy) noexcept override;
 		void __fastcall update(float time) noexcept;
 		bool isCooldown(float time) override;
 		void render(RenderWindow& wd, Sprite* ptr_sprite) noexcept override;
 };
+#pragma	pack(pop)
 
 //#endif

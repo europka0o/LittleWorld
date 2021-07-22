@@ -8,6 +8,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class text_box : public BaseInerface {
 		private:
 			RectangleShape* bevel; //Прямоугольник под текстом 
@@ -25,6 +26,7 @@ namespace __interface_companents {
 			void freeze(Camera* camera, int x, int y); //Замораживает позицию компонента относительно камеры
 			void render(RenderWindow& wd) noexcept override;
 	};
+#pragma	pack(pop)
 }
 
 //#endif

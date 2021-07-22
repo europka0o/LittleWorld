@@ -5,7 +5,7 @@
 //#define _WORLD_H_
 
 
-
+#pragma	pack(push, 1)
 class World {
 	private:
 		int size_x, size_y;
@@ -17,5 +17,6 @@ class World {
 		~World() noexcept;
 		void render(RenderWindow& wd) noexcept;
 };
+#pragma	pack(pop)
 
 //#endif 

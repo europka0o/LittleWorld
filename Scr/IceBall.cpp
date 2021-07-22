@@ -65,6 +65,14 @@ bool IceBall::isCooldown(float time) {
 	}
 }
 
+void __fastcall move(float time, direcrion4 direct = direcrion4::non) noexcept {
+	return;
+}
+
+void __fastcall attack(float time) {
+	return;
+}
+
 void IceBall::render(RenderWindow &wd, Sprite* ptr_sprite) noexcept {
 	if (visible) {
 		ptr_sprite->setPosition(pos.x, pos.y);

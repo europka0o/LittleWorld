@@ -1,6 +1,7 @@
 ﻿#include "Base.hpp"
 #pragma once
 
+#pragma	pack(push, 1)
 class background_color {
 	private:
 		axes_i pos;
@@ -23,3 +24,4 @@ class background_color {
 		void setColor(const Color &cl);
 		void render(RenderWindow& wd) noexcept;
 };
+#pragma	pack(pop)

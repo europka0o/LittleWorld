@@ -5,7 +5,7 @@
 //#define _TRIGGER_H_
 
 
-
+#pragma	pack(push, 1)
 class CollisionBox {
 	private:
 		axes_i pos;
@@ -46,6 +46,7 @@ class CollisionBox {
 		/// <param name="rect">Струткура IntRect с новыми параметрами</param>
 		void setBounds(const IntRect& rect);
 };
+#pragma	pack(pop)
 
 typedef CollisionBox Trigger;
 

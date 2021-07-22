@@ -11,6 +11,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class message {
 		private:
 			axes_i pos;
@@ -25,6 +26,7 @@ namespace __interface_companents {
 			void render(RenderWindow& wd, Camera* camera) noexcept;
 			void render(RenderWindow& wd) noexcept;
 	};
+#pragma	pack(pop)
 }
 
 //#endif

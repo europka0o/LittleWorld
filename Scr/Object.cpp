@@ -49,7 +49,7 @@ ObjectAnimated::ObjectAnimated(const Sprite& ptr_sprite, float X, float Y) :
 
 ObjectAnimated::~ObjectAnimated() {}
 
-void __fastcall ObjectAnimated::update(float time) {
-	return;
-}
+//void __fastcall ObjectAnimated::update(float time) {
+//	return;
+//}
 //-------------------------------Анимированный-объект-ObjectAnimated-Конец-------------------------------

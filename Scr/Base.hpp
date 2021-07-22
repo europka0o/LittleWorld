@@ -19,7 +19,7 @@ enum class settings_save_code {
 };
 
 /// <summary>
-/// Преобразует целочисленное число к строке
+/// Преобразует целочисленное значение к строке
 /// </summary>
 /// <param name="input">Целочисленное число</param>
 /// <returns>Строка</returns>

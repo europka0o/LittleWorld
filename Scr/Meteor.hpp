@@ -5,7 +5,7 @@
 //#define _METEOR_H_
 
 
-
+#pragma	pack(push, 1)
 class Meteor : public ObjectAnimated {
 	private:
 		axes_f pos_meteor;
@@ -19,5 +19,6 @@ class Meteor : public ObjectAnimated {
 		void __fastcall update(float time) override final;
 		void render(RenderWindow& wd, Sprite* ptr_sprite, Sprite* ptr_sprite_meteor) noexcept;
 };
+#pragma	pack(pop)
 
 //#endif

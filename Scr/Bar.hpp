@@ -8,6 +8,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class bar : public BaseInerface {
 		private:
 			int max_bar, min_bar, curr_bar; //Максимальное значение полосы, минимальное значение полосы, текущее значение полосы
@@ -69,6 +70,7 @@ namespace __interface_companents {
 			/// <param name="y">Координаты по оси Y</param>
 			void freeze(Camera* camera, int x, int y) noexcept;
 	};
+#pragma	pack(pop)
 }
 
 //#endif

@@ -20,6 +20,7 @@ enum class direcrion4 {
 	down
 };
 
+#pragma	pack(push, 1)
 class BaseCharacter {
 	protected:
 		axes_f pos;
@@ -44,5 +45,6 @@ class BaseCharacter {
 		virtual const IntRect& getSize() const noexcept;
 		virtual void render(RenderWindow& wd, Sprite* ptr_sprite);
 };
+#pragma	pack(pop)
 
 //#endif 

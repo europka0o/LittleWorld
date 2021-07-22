@@ -5,7 +5,7 @@
 //#define _INTERFACE_BASE_H_
 
 namespace __interface_companents {
-
+#pragma	pack(push, 1)
 	class BaseInerface {
 		protected:
 			axes_i pos;
@@ -14,7 +14,7 @@ namespace __interface_companents {
 			BaseInerface();
 			BaseInerface(int x, int y, const FloatRect& rect);
 			BaseInerface(const axes_i& xy, const FloatRect& rect);
-			~BaseInerface();
+			virtual ~BaseInerface();
 			bool visible;
 			virtual const axes_i& getPosition() const noexcept;
 			virtual void setPosition(const axes_i& xy);
@@ -22,6 +22,7 @@ namespace __interface_companents {
 			virtual const FloatRect& getSize() const noexcept;
 			virtual void render(RenderWindow& wd);
 	};
+#pragma	pack(pop)
 
 	//Направление градиента
 	enum gradient_direction {

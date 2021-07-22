@@ -10,7 +10,7 @@
 //#define _MENUSETTINGS_H_
 
 
-
+#pragma	pack(push, 1)
 class menu_settings {
 	private:
 		axes_i pos;
@@ -31,5 +31,6 @@ class menu_settings {
 		void render(RenderWindow& wd, Camera* camera) noexcept;
 		void render(RenderWindow& wd) noexcept;
 };
+#pragma	pack(pop)
 
 //#endif

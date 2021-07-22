@@ -7,6 +7,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class gradient : public BaseInerface {
 		private:
 			std::vector<sf::Color> colors;
@@ -31,6 +32,7 @@ namespace __interface_companents {
 			void __fastcall setPosition(int x, int y) override;
 			void render(RenderWindow& wd) noexcept override;
 	};
+#pragma	pack(pop)
 }
 
 //#endif

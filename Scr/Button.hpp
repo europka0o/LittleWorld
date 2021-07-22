@@ -8,6 +8,7 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class button : public BaseInerface {
 		private:
 			Text* txt;
@@ -25,6 +26,7 @@ namespace __interface_companents {
 			bool __fastcall isAction(int x, int y);
 			bool isAction(const axes_i& xy);
 	};
+#pragma	pack(pop)
 }
 
 //#endif

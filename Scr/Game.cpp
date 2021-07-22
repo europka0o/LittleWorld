@@ -1447,7 +1447,7 @@ int Game::LvlRun() {
 
 					if ((*it_en)->is_dead) {
 						delete* it_en;
-						it_en = EnemyList->erase(it_en);
+						it_en = EnemyList->erase(it_en); ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 					} else {
 
 						if ((*it_en)->rect_collis->getBounds().intersects(Castle->rect_collis->getBounds()) && (*it_en)->health != 0) {
@@ -1705,8 +1705,6 @@ int Game::lvlTraining() {
 
 	MainWrd = new World(pointer_cast(ptr_global_memory, Image), 60, 60);
 
-	barhp = 100;
-	barmp = 100;
 	HP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, 5, barhp, 0, L"HP:", Color::White, Color::Red, Color::Black); //Полоса здоровья
 	MP = new __interface_companents::bar(r_pointer_cast(((char*)(ptr_global_memory) + block_memory_font), Font), 5, HP->getSize().left + HP->getSize().width + 5, barmp, 0, L"MP:", Color::White, Color::Blue, Color::Black);
 	CameraMain = new Camera(CENTER_SCREEN_X, CENTER_SCREEN_Y, config->screenWidth, config->screenHeight);

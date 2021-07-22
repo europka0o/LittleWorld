@@ -6,7 +6,7 @@
 //#define _OBJECT_H_
 
 
-
+#pragma	pack(push, 1)
 class ObjectStatic {
 	protected:
 		axes_i pos;
@@ -42,7 +42,9 @@ class ObjectStatic {
 		virtual void setPosition(const axes_i& xy);
 		virtual void render(RenderWindow& wd, Sprite* ptr_sprite) noexcept;
 };
+#pragma	pack(pop)
 
+#pragma	pack(push, 1)
 class ObjectAnimated : public ObjectStatic {
 	protected:
 		float frame;
@@ -61,7 +63,8 @@ class ObjectAnimated : public ObjectStatic {
 		/// Обновление объекта
 		/// </summary>
 		/// <param name="time">Время, чем больше значение переменной, тем быстрее происходит обновление</param>
-		virtual void __fastcall update(float time);
+		virtual void __fastcall update(float time) = 0;
 };
+#pragma	pack(pop)
 
 //#endif

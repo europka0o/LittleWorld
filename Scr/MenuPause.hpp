@@ -8,7 +8,7 @@
 //#define _MENUPAUSE_H_
 
 
-
+#pragma	pack(push, 1)
 class menu_pause {
 	private:
 		axes_i pos;
@@ -22,5 +22,6 @@ class menu_pause {
 		~menu_pause();
 		void render(RenderWindow& wd, Camera* camera) noexcept;
 };
+#pragma	pack(pop)
 
 //#endif
