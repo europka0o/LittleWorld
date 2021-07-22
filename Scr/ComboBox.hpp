@@ -7,18 +7,15 @@
 
 
 namespace __interface_companents {
+#pragma	pack(push, 1)
 	class combo_box : public BaseInerface {
 		private:
-			struct cell {
-				cell(Text txt, int val);
-				Text text_box;
-				int value;
-			};
+			using cell = std::pair<Text, int>*;
 			Font* font;
 			RectangleShape* main;
 			Color text_cl, main_cl;
-			std::vector<cell*> mass_text;
-			std::vector<cell*>::iterator it;
+			std::vector<cell> mass_text;
+			std::vector<cell>::iterator it;
 		public:
 			bool visible_main, active;
 			combo_box(int x, int y, const Color& maincl, const Color& textcl);
@@ -26,6 +23,7 @@ namespace __interface_companents {
 			void setPosition(const axes_i& xy) override;
 			void __fastcall setPosition(int x, int y) override;
 			void add(const wchar_t* st, int val);
+			void add(const std::pair<Text, int> &&_cell);
 			void next();
 			void back();
 			bool __fastcall isAction(int x, int y);
@@ -34,6 +32,7 @@ namespace __interface_companents {
 			int getValue() const noexcept;
 			void render(RenderWindow& wd) noexcept override;
 	};
+#pragma	pack(pop)
 }
 
 //#endif
