@@ -4,7 +4,7 @@ ____
 ## Сброка спомошью cmake:
 
 1. Клонируй репозиторий и создаем любую папку в нем
-```powershell
+```bat
     git clone https://github.com/europka0o/LittleWorld.git
     cd LittleWorld
     mkdir любое название папки
